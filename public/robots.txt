@@ -1,0 +1,44 @@
+# robots.txt for RyzonPlus
+# Allow search engines to crawl the site
+
+User-agent: *
+Allow: /
+Allow: /features
+Allow: /pricing
+Allow: /about
+Allow: /use-cases
+Allow: /benefits
+Allow: /contact
+
+# Disallow login and admin pages
+Disallow: /login
+Disallow: /signup
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /unauthorized
+
+# Sitemap location
+Sitemap: https://RyzonPlus.com/sitemap.xml
+
+# Crawl delay (optional - allows servers to breathe)
+Crawl-delay: 1
+
+# User agents
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Yandexbot
+Allow: /
+
+# Block bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
