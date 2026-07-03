@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import {
   UserGroupIcon,
   HeartIcon,
@@ -68,26 +69,41 @@ const AboutPage = () => {
             </div>
           </div>
 
+          {/* Stats Section */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20 text-center">
+            {[
+              { label: "Years Experience", value: "10+" },
+              { label: "Happy Clients", value: "15,000+" },
+              { label: "Certified Mechanics", value: "15+" },
+              { label: "Satisfaction Rate", value: "100%" },
+            ].map((stat, idx) => (
+              <div key={idx} className="glass-card p-6 bg-white dark:bg-dark-lighter/50 border border-gray-150 dark:border-white/5 rounded-3xl shadow-sm">
+                <p className="text-4xl font-extrabold text-primary">{stat.value}</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-2 font-medium uppercase tracking-wider">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+
           {/* Values Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-            <div className="glass-card p-8 bg-gray-50 dark:bg-dark-lighter/30">
+            <div className="glass-card p-8 bg-gray-50 dark:bg-dark-lighter/30 border border-gray-150 dark:border-white/5 rounded-3xl">
               <ShieldCheckIcon className="w-10 h-10 text-primary mb-6" />
               <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
                 Ethics & Integrity
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-650 dark:text-gray-400 font-light leading-relaxed">
                 Honesty and Loyalty in Every Repair. Finding a mechanic you can
                 truly trust is key. At RuiruAutoGarage, we value long-term
                 relationships, deliver quality workmanship, and ensure
                 transparent pricing with no hidden fees or surprises.
               </p>
             </div>
-            <div className="glass-card p-8 bg-gray-50 dark:bg-dark-lighter/30">
+            <div className="glass-card p-8 bg-gray-50 dark:bg-dark-lighter/30 border border-gray-150 dark:border-white/5 rounded-3xl">
               <UserGroupIcon className="w-10 h-10 text-secondary mb-6" />
               <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
                 The Local Advantage
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-650 dark:text-gray-400 font-light leading-relaxed">
                 Your Trusted Local Workshop. Staying local means personal
                 service, fast response times, and genuine community connection.
                 We are proud to serve Ruiru and its surroundings.
@@ -96,18 +112,19 @@ const AboutPage = () => {
           </div>
 
           {/* Invitation / CTA */}
-          <div className="bg-gradient-to-r from-primary to-orange-600 rounded-3xl p-10 text-center text-white shadow-xl">
-            <h2 className="text-3xl font-bold mb-4">
+          <div className="bg-gradient-to-r from-primary to-orange-600 rounded-3xl p-10 text-center text-white shadow-xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full translate-x-1/3 -translate-y-1/3 blur-3xl"></div>
+            <h2 className="text-3xl font-extrabold mb-4 relative z-10">
               Experience the Difference
             </h2>
-            <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto font-light leading-relaxed relative z-10">
               We invite you to discover the RuiruAutoGarage difference. Contact
               us today to book your appointment or learn more about how we can
               help keep your vehicle in top condition.
             </p>
-            <button className="bg-white text-primary font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition-colors shadow-lg">
+            <Link to="/contact" className="inline-block bg-white text-primary font-bold py-3.5 px-8 rounded-full hover:bg-gray-100 hover:scale-105 transition-all shadow-lg text-sm relative z-10">
               Contact Us Today
-            </button>
+            </Link>
           </div>
         </div>
       </div>

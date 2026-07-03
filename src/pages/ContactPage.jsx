@@ -111,12 +111,19 @@ const ContactPage = () => {
                 </div>
               </div>
 
-              {/* Embedded Map Placeholder */}
-              <div className="mt-12 rounded-2xl overflow-hidden h-64 bg-gray-200 dark:bg-gray-800 relative group">
-                {/* Since I can't embed a real iframe dynamically without a key or URL, using a static placeholder styling */}
-                <div className="absolute inset-0 flex items-center justify-center text-gray-500 dark:text-gray-400 bg-gray-300 dark:bg-gray-700">
-                  Map will be embedded here
-                </div>
+              {/* Embedded Map */}
+              <div className="mt-12 rounded-2xl overflow-hidden h-64 border border-gray-200 dark:border-white/5 relative shadow-md">
+                <iframe
+                  title="Ruiru Auto Garage Map Location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2612.5580781550575!2d36.956170139548476!3d-1.1457946630675555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2b6d635904c59cf%3A0xd5a0c7361a168229!2sRuiru%20Auto%20Garage!5e1!3m2!1sen!2ske!4v1783055545910!5m2!1sen!2ske"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="dark:opacity-80"
+                ></iframe> 
               </div>
             </div>
 

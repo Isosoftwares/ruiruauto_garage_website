@@ -81,6 +81,14 @@ const Footer = () => {
               </li>
               <li>
                 <Link
+                  to="/areas"
+                  className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+                >
+                  Service Areas
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/about"
                   className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
                 >
@@ -94,6 +102,24 @@ const Footer = () => {
                 >
                   Contact
                 </Link>
+              </li>
+              <li>
+                <Link
+                  to="/portal"
+                  className="dark:text-gray-400 hover:text-primary transition-colors font-semibold text-primary"
+                >
+                  Client Portal
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="https://adminruiruauto.seamlessit.net"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+                >
+                  Admin Login
+                </a>
               </li>
             </ul>
           </div>

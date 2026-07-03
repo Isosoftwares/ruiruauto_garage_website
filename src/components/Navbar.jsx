@@ -37,6 +37,7 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Services", path: "/services" },
+    { name: "Areas", path: "/areas" },
     { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" },
   ];
@@ -86,9 +87,9 @@ const Navbar = () => {
           {/* Desktop Actions - Right Aligned */}
           <div className="hidden md:flex items-center gap-4">
             <Link
-              to="/invoices"
+              to="/portal"
               className="flex items-center gap-2 font-medium text-gray-700 dark:text-gray-300 hover:text-primary transition-colors"
-              title="Client Portal (Coming Soon)"
+              title="Client Portal"
             >
               <UserCircleIcon className="w-6 h-6" />
             </Link>
@@ -160,11 +161,11 @@ const Navbar = () => {
               </Link>
             ))}
             <Link
-              to="/invoices"
+              to="/portal"
               className="text-lg font-medium py-2 border-b border-gray-100 dark:border-white/5 text-gray-700 dark:text-gray-300 flex items-center gap-2"
             >
               <UserCircleIcon className="w-5 h-5" />
-              Invoices
+              Client Portal
             </Link>
             <Link to="/contact" className="btn-primary mt-4 text-center">
               Book Service

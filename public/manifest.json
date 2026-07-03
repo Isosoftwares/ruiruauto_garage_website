@@ -1,0 +1,18 @@
+{
+  "name": "Ruiru Auto Garage Portal",
+  "short_name": "Ruiru Auto",
+  "description": "Ruiru Auto Garage client portal - Track vehicles, invoices, quotes, and checkins.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#111111",
+  "theme_color": "#E63946",
+  "icons": [
+    {
+      "src": "/garagelogo.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}
