@@ -113,7 +113,7 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="https://adminruiruauto.seamlessit.net"
+                  href="https://api.motionzipltd.com/api"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
