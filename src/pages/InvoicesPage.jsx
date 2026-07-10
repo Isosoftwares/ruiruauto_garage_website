@@ -10,7 +10,7 @@ const InvoicesPage = () => {
   return (
     <motion.div className="min-h-screen pt-32 pb-20 flex items-center justify-center bg-gray-50 dark:bg-dark text-center px-4">
       <Helmet>
-        <title>Client Portal | Ruiru Auto Garage</title>
+        <title>Client Portal | Motion Zip Ltd</title>
         <meta
           name="description"
           content="View your invoices and service history."

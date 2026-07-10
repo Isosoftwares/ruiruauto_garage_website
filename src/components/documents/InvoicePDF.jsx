@@ -409,12 +409,12 @@ const InvoicePDF = ({ invoice, business }) => {
         <View style={styles.headerContainer}>
           <View style={styles.headerLeft}>
             <Image src={invoice.companySnapshot?.logo || logo} style={styles.logo} />
-            <Text style={styles.slogan}>{invoice.companySnapshot?.name || "Ruiru Auto Garage"}</Text>
+            <Text style={styles.slogan}>{invoice.companySnapshot?.name || "Motion Zip Ltd"}</Text>
             <Text style={styles.contactText}>
               {invoice.companySnapshot?.phone || business?.phone || "0748 333 555"}
             </Text>
             <Text style={styles.contactText}>
-              {invoice.companySnapshot?.email || business?.email || "info@ruiruautogarage.com"}
+              {invoice.companySnapshot?.email || business?.email || "contact@motionzipltd.com"}
             </Text>
           </View>
 
@@ -655,7 +655,7 @@ const InvoicePDF = ({ invoice, business }) => {
                   textTransform: "uppercase",
                 }}
               >
-                WWW.RUIRUAUTOGARAGE.COM
+                WWW.MOTIONZIPLTD.COM
               </Text>
             </View>
           </View>
@@ -669,7 +669,7 @@ const InvoicePDF = ({ invoice, business }) => {
             <View style={{ flexDirection: "row", alignItems: "center", gap: 15 }}>
               <Image src={invoice.companySnapshot?.logo || logo} style={styles.logo} />
               <View>
-                <Text style={styles.slogan}>{invoice.companySnapshot?.name || "Ruiru Auto Garage"}</Text>
+                <Text style={styles.slogan}>{invoice.companySnapshot?.name || "Motion Zip Ltd"}</Text>
                 <Text style={styles.notesText}>{invoice.companySnapshot?.phone || business?.phone}</Text>
                 <Text style={styles.notesText}>{invoice.companySnapshot?.email || business?.email}</Text>
               </View>

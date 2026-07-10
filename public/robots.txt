@@ -1,4 +1,4 @@
-# robots.txt for RyzonPlus
+# robots.txt for Motion Zip Ltd
 # Allow search engines to crawl the site
 
 User-agent: *
@@ -18,7 +18,7 @@ Disallow: /dashboard
 Disallow: /unauthorized
 
 # Sitemap location
-Sitemap: https://RyzonPlus.com/sitemap.xml
+Sitemap: https://motionzipltd.com/sitemap.xml
 
 # Crawl delay (optional - allows servers to breathe)
 Crawl-delay: 1

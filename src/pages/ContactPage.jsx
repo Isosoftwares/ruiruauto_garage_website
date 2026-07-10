@@ -1,31 +1,23 @@
 import React from "react";
-import { useForm } from "react-hook-form";
 import {
   MapPinIcon,
   PhoneIcon,
   EnvelopeIcon,
 } from "@heroicons/react/24/outline";
-import { toast } from "react-toastify";
+import { FaWhatsapp } from "react-icons/fa";
 import { Helmet } from "react-helmet-async";
 
 const ContactPage = () => {
-  const { register, handleSubmit, reset } = useForm();
-
-  const onSubmit = (data) => {
-    console.log(data);
-    toast.success("Message sent successfully! We'll get back to you soon.");
-    reset();
-  };
 
   return (
     <div className="">
       <Helmet>
-        <title>Contact Us | Ruiru Auto Garage</title>
+        <title>Contact Us | Motion Zip Ltd</title>
         <meta
           name="description"
-          content="Get in touch with Ruiru Auto Garage. Visit us off Thika Super Highway, call us on 0748 333 555, or send us a message."
+          content="Get in touch with Motion Zip Ltd. Visit us off Thika Super Highway, call us on 0748 333 555, or send us a message."
         />
-        <link rel="canonical" href="https://www.ruiruautogarage.com/contact" />
+        <link rel="canonical" href="https://motionzipltd.com/contact" />
       </Helmet>
 
       {/* Header */}
@@ -57,7 +49,7 @@ const ContactPage = () => {
                       Visit Us
                     </h3>
                     <p className="text-gray-600 dark:text-gray-400">
-                      Ruiru Auto Garage, Mathigu Rd,
+                      Motion Zip Ltd, Mathigu Rd,
                       <br />
                       Ruiru Town, Along Thika Super Highway.
                     </p>
@@ -101,10 +93,10 @@ const ContactPage = () => {
                     </h3>
                     <p className="text-gray-600 dark:text-gray-400">
                       <a
-                        href="mailto:contact@ruiruautogarage.com"
+                        href="mailto:contact@motionzipltd.com"
                         className="hover:text-primary transition-colors"
                       >
-                        contact@ruiruautogarage.com
+                        contact@motionzipltd.com
                       </a>
                     </p>
                   </div>
@@ -114,7 +106,7 @@ const ContactPage = () => {
               {/* Embedded Map */}
               <div className="mt-12 rounded-2xl overflow-hidden h-64 border border-gray-200 dark:border-white/5 relative shadow-md">
                 <iframe
-                  title="Ruiru Auto Garage Map Location"
+                  title="Motion Zip Ltd Map Location"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2612.5580781550575!2d36.956170139548476!3d-1.1457946630675555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2b6d635904c59cf%3A0xd5a0c7361a168229!2sRuiru%20Auto%20Garage!5e1!3m2!1sen!2ske!4v1783055545910!5m2!1sen!2ske"
                   width="100%"
                   height="100%"
@@ -127,49 +119,30 @@ const ContactPage = () => {
               </div>
             </div>
 
-            {/* Contact Form */}
-            <div className="glass-card bg-white dark:bg-dark-lighter border-gray-100 dark:border-gray-800">
-              <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
-                Send a Message
+            {/* Direct WhatsApp Call to Action */}
+            <div className="glass-card bg-white dark:bg-dark-lighter border-gray-100 dark:border-gray-800 p-8 flex flex-col justify-center items-center text-center space-y-6">
+              <div className="w-16 h-16 bg-green-500/10 rounded-full flex items-center justify-center text-green-500 shadow-lg shadow-green-500/25">
+                <FaWhatsapp className="w-10 h-10 animate-pulse" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                Direct WhatsApp Booking
               </h3>
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Your Name
-                  </label>
-                  <input
-                    {...register("name", { required: true })}
-                    type="text"
-                    className="input-field"
-                    placeholder="John Doe"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    {...register("email", { required: true })}
-                    type="email"
-                    className="input-field"
-                    placeholder="john@example.com"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    {...register("message", { required: true })}
-                    rows="4"
-                    className="input-field resize-none"
-                    placeholder="How can we help you?"
-                  ></textarea>
-                </div>
-                <button type="submit" className="btn-primary w-full">
-                  Send Message
-                </button>
-              </form>
+              <p className="text-gray-600 dark:text-gray-400 max-w-sm font-light">
+                The fastest way to book a diagnostic scan, timing belt replacement, or mechanical repairs is to chat directly with our front desk coordinators on WhatsApp.
+              </p>
+              <a
+                href="https://wa.me/254723669437?text=Hi%20Motion%20Zip%20Ltd,%20I'd%20like%20to%20inquire%20about%20booking%20an%20appointment%20for%20my%20vehicle."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary w-full bg-green-600 hover:bg-green-700 hover:shadow-green-500/30 border-none flex items-center justify-center gap-2 py-4 shadow-md text-sm font-bold active:scale-95"
+              >
+                <FaWhatsapp className="w-5 h-5" />
+                <span>Start WhatsApp Chat</span>
+              </a>
+              <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 font-light">
+                <span>Or call us directly at</span>
+                <a href="tel:0748333555" className="font-bold text-primary hover:underline">0748 333 555</a>
+              </div>
             </div>
           </div>
         </div>

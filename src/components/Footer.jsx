@@ -24,7 +24,7 @@ const Footer = () => {
               <div className="w-10 h-10 overflow-hidden rounded-full border border-primary/50">
                 <img
                   src={Logo}
-                  alt="Ruiru Auto Garage"
+                  alt="Motion Zip Ltd"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -37,19 +37,19 @@ const Footer = () => {
             <div className="flex gap-4">
               {/* Social Icons */}
               <SocialIcon
-                url="https://facebook.com"
+                url="https://www.facebook.com/motionzipltd"
                 style={{ height: 35, width: 35 }}
                 bgColor="#E63946"
                 fgColor="#fff"
               />
               <SocialIcon
-                url="https://twitter.com"
+                url="https://x.com/motionzipltd"
                 style={{ height: 35, width: 35 }}
                 bgColor="#E63946"
                 fgColor="#fff"
               />
               <SocialIcon
-                url="https://instagram.com"
+                url="https://www.instagram.com/motionzipltd"
                 style={{ height: 35, width: 35 }}
                 bgColor="#E63946"
                 fgColor="#fff"
@@ -111,16 +111,16 @@ const Footer = () => {
                   Client Portal
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <a
-                  href="https://api.motionzipltd.com/api"
+                  href="https://admin.motionzipltd.com/api"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
                 >
                   Admin Login
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
 
@@ -154,11 +154,19 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-gray-600 dark:text-gray-400">
                 <MapPinIcon className="w-6 h-6 text-primary flex-shrink-0" />
-                <span>
-                  Mathigu Rd, Ruiru Town,
-                  <br />
-                  Along Thika Super Highway
-                </span>
+                <div>
+                  <a
+                    href="https://www.google.com/maps/dir/?api=1&destination=-1.1457946630675555,36.956170139548476"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary transition-colors block"
+                  >
+                    Mathigu Rd, Ruiru Town,
+                    <br />
+                    Along Thika Super Highway
+                  </a>
+                  
+                </div>
               </li>
               <li className="flex items-center gap-3 text-gray-600 dark:text-gray-400">
                 <PhoneIcon className="w-5 h-5 text-primary flex-shrink-0" />
@@ -172,18 +180,33 @@ const Footer = () => {
               <li className="flex items-center gap-3 text-gray-600 dark:text-gray-400">
                 <EnvelopeIcon className="w-5 h-5 text-primary flex-shrink-0" />
                 <a
-                  href="mailto:contact@ruiruautogarage.com"
+                  href="mailto:contact@motionzipltd.com"
                   className="hover:text-primary transition-colors"
                 >
-                  contact@ruiruautogarage.com
+                  contact@motionzipltd.com
                 </a>
+              </li>
+              <li className="pt-2">
+                <div className="rounded-2xl overflow-hidden h-36 border border-gray-250/50 dark:border-white/5 shadow-sm relative">
+                  <iframe
+                    title="Motion Zip Ltd Map Pin"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2612.5580781550575!2d36.956170139548476!3d-1.1457946630675555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2b6d635904c59cf%3A0xd5a0c7361a168229!2sRuiru%20Auto%20Garage!5e1!3m2!1sen!2ske!4v1783055545910!5m2!1sen!2ske"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="dark:opacity-80"
+                  ></iframe>
+                </div>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-gray-200 dark:border-white/5 pt-8 text-center text-gray-500 dark:text-gray-600 text-sm">
-          <p>&copy; {currentYear} Ruiru Auto Garage. All rights reserved.</p>
+          <p>&copy; {currentYear} Motion Zip Ltd. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -12,6 +12,8 @@ import {
 } from "@heroicons/react/24/outline";
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
+import Logo from "../../assets/graphics/garagelogo.jpeg";
+import BgImage from "../../assets/images/portal_login_bg.png";
 
 const PortalLogin = () => {
   const { login, token } = useClientAuth();
@@ -101,32 +103,41 @@ const PortalLogin = () => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="min-h-screen pt-32 pb-20 flex items-center justify-center bg-gray-50 dark:bg-dark px-4"
+      style={{ backgroundImage: `url(${BgImage})` }}
+      className="min-h-screen bg-cover bg-center flex items-center justify-center px-4 relative"
     >
+      {/* Dark premium overlay with heavy blur overlay */}
+      <div className="absolute inset-0 bg-slate-200/20 backdrop-blur-sm z-0"></div>
+
       <Helmet>
-        <title>Client Portal Login | Ruiru Auto Garage</title>
+        <title>Client Portal Login | Motion Zip Ltd</title>
         <meta
           name="description"
-          content="Access your Ruiru Auto Garage Client Portal to track vehicles, invoices, quotes, and checkins."
+          content="Access your Motion Zip Ltd Client Portal to track vehicles, invoices, quotes, and checkins."
         />
       </Helmet>
 
-      <div className="max-w-md w-full glass-card p-8 md:p-10 shadow-2xl rounded-3xl border border-gray-200 dark:border-white/5 bg-white/70 dark:bg-dark-lighter/50 backdrop-blur-lg">
+      <div className="max-w-md w-full bg-black/60 dark:bg-black/60 border border-white/10 backdrop-blur-xl p-8 md:p-10 shadow-2xl rounded-3xl z-10 relative overflow-hidden">
+        {/* Neon accent glowing top line */}
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-secondary to-primary shadow-[0_1px_15px_#E63946]"></div>
+
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 text-primary">
-            {step === 1 ? (
-              <PhoneIcon className="w-8 h-8" />
-            ) : (
-              <ShieldCheckIcon className="w-8 h-8 animate-pulse" />
-            )}
+          {/* Branded Garage Logo */}
+          <div className="w-20 h-20 overflow-hidden rounded-full border-2 border-primary shadow-lg mx-auto mb-4 bg-black flex items-center justify-center">
+            <img
+              src={Logo}
+              alt="Motion Zip Ltd Logo"
+              className="w-full h-full object-cover"
+            />
           </div>
-          <h1 className="text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+
+          <h1 className="text-2xl font-black text-white uppercase tracking-tight">
             Client Portal
           </h1>
-          <p className="text-gray-500 dark:text-gray-400 mt-2 text-sm">
+          <p className="text-gray-400 mt-2 text-xs font-light leading-relaxed">
             {step === 1
               ? "Enter your registered mobile number to log in via verification code"
               : `Enter the 6-digit OTP code sent to ${phone}`}
@@ -136,7 +147,7 @@ const PortalLogin = () => {
         {step === 1 ? (
           <form onSubmit={handleRequestOtp} className="space-y-6">
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+              <label className="text-xs font-bold text-gray-300 uppercase tracking-wide">
                 Phone Number
               </label>
               <div className="relative">
@@ -149,7 +160,7 @@ const PortalLogin = () => {
                   placeholder="e.g. 0748333555"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
-                  className="w-full pl-11 pr-4 py-3 bg-gray-50 dark:bg-dark border border-gray-200 dark:border-white/10 rounded-2xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all font-medium"
+                  className="w-full pl-11 pr-4 py-3.5 bg-black/45 border border-white/10 rounded-2xl text-white placeholder-gray-500 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all font-medium text-sm"
                 />
               </div>
             </div>
@@ -157,13 +168,13 @@ const PortalLogin = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full btn-primary py-3 px-6 rounded-2xl flex items-center justify-center gap-2 font-bold shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all disabled:opacity-50"
+              className="w-full btn-primary py-3.5 px-6 rounded-2xl flex items-center justify-center gap-2 font-bold shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all disabled:opacity-50"
             >
               {loading ? (
                 <ArrowPathIcon className="w-5 h-5 animate-spin" />
               ) : (
                 <>
-                  <span>Request Code</span>
+                  <span>Request OTP Code</span>
                   <ArrowRightIcon className="w-5 h-5" />
                 </>
               )}
@@ -171,7 +182,7 @@ const PortalLogin = () => {
             <div className="text-center pt-2">
               <Link
                 to="/"
-                className="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors font-semibold"
+                className="inline-flex items-center gap-1.5 text-xs text-gray-400 hover:text-primary transition-colors font-semibold"
               >
                 <ArrowLeftIcon className="w-4 h-4" />
                 <span>Back to Website</span>
@@ -181,24 +192,24 @@ const PortalLogin = () => {
         ) : (
           <form onSubmit={handleVerifyOtp} className="space-y-6">
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+              <label className="text-xs font-bold text-gray-300 uppercase tracking-wide">
                 Verification Code
               </label>
               <input
                 type="text"
                 required
                 maxLength={6}
-                placeholder="000 000"
+                placeholder="000000"
                 value={otp}
                 onChange={(e) => setOtp(e.target.value.replace(/\D/g, ""))}
-                className="w-full text-center tracking-[1em] text-2xl font-bold py-3 bg-gray-50 dark:bg-dark border border-gray-200 dark:border-white/10 rounded-2xl text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all placeholder-gray-300 dark:placeholder-gray-700"
+                className="w-full text-center tracking-[0.5em] text-2xl font-bold py-3.5 bg-black/45 border border-white/10 rounded-2xl text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all placeholder-gray-600 font-mono"
               />
             </div>
 
             <button
               type="submit"
               disabled={loading}
-              className="w-full btn-primary py-3 px-6 rounded-2xl flex items-center justify-center gap-2 font-bold shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all disabled:opacity-50"
+              className="w-full btn-primary py-3.5 px-6 rounded-2xl flex items-center justify-center gap-2 font-bold shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all disabled:opacity-50"
             >
               {loading ? (
                 <ArrowPathIcon className="w-5 h-5 animate-spin" />
@@ -210,11 +221,11 @@ const PortalLogin = () => {
               )}
             </button>
 
-            <div className="flex justify-between items-center text-sm pt-2">
+            <div className="flex justify-between items-center text-xs pt-2">
               <button
                 type="button"
                 onClick={handleBackToPhone}
-                className="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors font-medium"
+                className="text-gray-400 hover:text-primary transition-colors font-medium"
               >
                 Change Number
               </button>
@@ -227,13 +238,22 @@ const PortalLogin = () => {
                   Resend Code
                 </button>
               ) : (
-                <span className="text-gray-400 dark:text-gray-600 font-medium">
+                <span className="text-gray-500 font-medium">
                   Resend in {resendTimer}s
                 </span>
               )}
             </div>
           </form>
         )}
+
+        {/* Live system state diagnostic readouts */}
+        <div className="pt-6 border-t border-white/5 flex justify-between items-center text-[9px] font-mono text-gray-500">
+          <div className="flex items-center gap-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+            <span>SYSTEM ONLINE</span>
+          </div>
+          <div>NODE: MZIP_RUIRU_HQ</div>
+        </div>
       </div>
     </motion.div>
   );

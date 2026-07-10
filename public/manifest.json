@@ -1,7 +1,7 @@
 {
-  "name": "Ruiru Auto Garage Portal",
-  "short_name": "Ruiru Auto",
-  "description": "Ruiru Auto Garage client portal - Track vehicles, invoices, quotes, and checkins.",
+  "name": "Motion Zip Ltd Portal",
+  "short_name": "Motion Zip",
+  "description": "Motion Zip Ltd client portal - Track vehicles, invoices, quotes, and checkins.",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait",

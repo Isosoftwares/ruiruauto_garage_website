@@ -111,7 +111,7 @@ const PortalDashboard = () => {
             Jambo, {client?.firstName}!
           </h1>
           <p className="text-white/95 leading-relaxed font-light">
-            Welcome to the Ruiru Auto Garage Client Portal. View and check your
+            Welcome to the Motion Zip Ltd Client Portal. View and check your
             active work estimates, invoice payments, and vehicle check-in
             reports anywhere, anytime.
           </p>

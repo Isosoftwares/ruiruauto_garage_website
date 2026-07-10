@@ -64,7 +64,7 @@ const ServiceDetailPage = () => {
   }
 
   // Calculate dynamic WhatsApp text booking link
-  const whatsappUrl = `https://wa.me/254748333555?text=Hi%20Ruiru%20Auto%20Garage,%20I'm%20interested%20in%20booking%20an%20appointment%20for%20the%20"${encodeURIComponent(
+  const whatsappUrl = `https://wa.me/254723669437?text=Hi%20Motion%20Zip%20Ltd,%20I'm%20interested%20in%20booking%20an%20appointment%20for%20the%20"${encodeURIComponent(
     service.name
   )}"%20service.`;
 
@@ -76,7 +76,7 @@ const ServiceDetailPage = () => {
       className="min-h-screen pt-32 pb-20 bg-gray-50 dark:bg-dark"
     >
       <Helmet>
-        <title>{service.metaTitle || `${service.name} | Ruiru Auto Garage`}</title>
+        <title>{service.metaTitle || `${service.name} | Motion Zip Ltd`}</title>
         <meta
           name="description"
           content={service.metaDescription || service.description || `Read details about our ${service.name} service offered in Ruiru.`}
@@ -84,7 +84,7 @@ const ServiceDetailPage = () => {
         {service.metaKeywords && (
           <meta name="keywords" content={service.metaKeywords} />
         )}
-        <link rel="canonical" href={`https://www.ruiruautogarage.com/services/${slug}`} />
+        <link rel="canonical" href={`https://motionzipltd.com/services/${slug}`} />
       </Helmet>
 
       <div className="container-custom max-w-5xl">
@@ -187,7 +187,7 @@ const ServiceDetailPage = () => {
             Need to schedule this service for your vehicle?
           </h3>
           <p className="text-gray-550 dark:text-gray-400 text-sm max-w-xl mx-auto leading-relaxed font-light">
-            Contact Ruiru Auto Garage's booking office via WhatsApp or phone.
+            Contact Motion Zip Ltd's booking office via WhatsApp or phone.
             Our technicians will prepare for your vehicle intake instantly.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-2">

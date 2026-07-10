@@ -56,10 +56,10 @@ const Navbar = () => {
         <div className="flex justify-between items-center relative">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-12 h-12 overflow-hidden rounded-full border-2 border-primary shadow-lg group-hover:shadow-primary/50 transition-all">
+            <div className="w-16 h-16 overflow-hidden rounded-full border-2 border-primary shadow-lg group-hover:shadow-primary/50 transition-all">
               <img
                 src={Logo}
-                alt="Ruiru Auto Garage"
+                alt="Motion Zip Ltd"
                 className="w-full h-full object-cover"
               />
             </div>

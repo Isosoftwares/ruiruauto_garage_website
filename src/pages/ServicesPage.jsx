@@ -64,12 +64,12 @@ const ServicesPage = () => {
       className="min-h-screen bg-gray-50 dark:bg-dark"
     >
       <Helmet>
-        <title>Our Services | Ruiru Auto Garage</title>
+        <title>Our Services | Motion Zip Ltd</title>
         <meta
           name="description"
           content="Explore our comprehensive auto repair services including tune-ups, engine rebuilds, brake replacements, alternator swaps, and electrical fixes in Ruiru."
         />
-        <link rel="canonical" href="https://www.ruiruautogarage.com/services" />
+        <link rel="canonical" href="https://motionzipltd.com/services" />
       </Helmet>
 
       {/* Header */}
@@ -209,7 +209,7 @@ const ServicesPage = () => {
               Call Reception
             </a>
             <a
-              href="https://wa.me/254748333555"
+              href="https://wa.me/254723669437"
               target="_blank"
               rel="noreferrer"
               className="btn-outline border border-gray-250 dark:border-white/10 py-2.5 px-6 rounded-xl font-bold text-sm flex items-center gap-2 text-gray-700 dark:text-gray-300"

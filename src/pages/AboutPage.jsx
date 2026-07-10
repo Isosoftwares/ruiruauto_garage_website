@@ -12,12 +12,12 @@ const AboutPage = () => {
   return (
     <div className="">
       <Helmet>
-        <title>About Us | Ruiru Auto Garage</title>
+        <title>About Us | Motion Zip Ltd</title>
         <meta
           name="description"
-          content="Learn about Ruiru Auto Garage's mission, ethics, and our commitment to being your trusted local workshop in Ruiru."
+          content="Learn about Motion Zip Ltd's mission, ethics, and our commitment to being your trusted local workshop in Ruiru."
         />
-        <link rel="canonical" href="https://www.ruiruautogarage.com/about" />
+        <link rel="canonical" href="https://motionzipltd.com/about" />
       </Helmet>
 
       {/* Header */}
@@ -91,9 +91,9 @@ const AboutPage = () => {
               <h3 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
                 Ethics & Integrity
               </h3>
-              <p className="text-gray-650 dark:text-gray-400 font-light leading-relaxed">
+              <p className="text-gray-655 dark:text-gray-400 font-light leading-relaxed">
                 Honesty and Loyalty in Every Repair. Finding a mechanic you can
-                truly trust is key. At RuiruAutoGarage, we value long-term
+                truly trust is key. At Motion Zip Ltd, we value long-term
                 relationships, deliver quality workmanship, and ensure
                 transparent pricing with no hidden fees or surprises.
               </p>
@@ -118,7 +118,7 @@ const AboutPage = () => {
               Experience the Difference
             </h2>
             <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto font-light leading-relaxed relative z-10">
-              We invite you to discover the RuiruAutoGarage difference. Contact
+              We invite you to discover the Motion Zip difference. Contact
               us today to book your appointment or learn more about how we can
               help keep your vehicle in top condition.
             </p>

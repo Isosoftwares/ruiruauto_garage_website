@@ -330,12 +330,12 @@ const QuotePDF = ({ quote, business }) => {
         <View style={styles.headerContainer}>
           <View style={styles.headerLeft}>
             <Image src={quote.companySnapshot?.logo || logo} style={styles.logo} />
-            <Text style={styles.slogan}>{quote.companySnapshot?.name || "Ruiru Auto Garage"}</Text>
+            <Text style={styles.slogan}>{quote.companySnapshot?.name || "Motion Zip Ltd"}</Text>
             <Text style={styles.contactText}>
               {quote.companySnapshot?.phone || business?.phone || "0748 333 555"}
             </Text>
             <Text style={styles.contactText}>
-              {quote.companySnapshot?.email || business?.email || "info@ruiruautogarage.com"}
+              {quote.companySnapshot?.email || business?.email || "contact@motionzipltd.com"}
             </Text>
           </View>
 
@@ -558,7 +558,7 @@ const QuotePDF = ({ quote, business }) => {
                   textTransform: "uppercase",
                 }}
               >
-                WWW.RUIRUAUTOGARAGE.COM
+                WWW.MOTIONZIPLTD.COM
               </Text>
             </View>
           </View>

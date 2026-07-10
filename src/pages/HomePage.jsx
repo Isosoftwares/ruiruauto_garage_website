@@ -86,7 +86,7 @@ const HomePage = () => {
       { text: "Airbag SRS safety check...", status: "OK" },
       { text: "Gearbox TCU telemetry query...", status: "OK" },
       { text: "Fault Code: P0303 Cylinder 3 Misfire", status: "FAULT" },
-      { text: "Scan complete. Reporting to Client Portal.", status: "DONE" }
+      { text: "Scan complete. Reporting to Client Portal.", status: "DONE" },
     ];
 
     const progressInterval = setInterval(() => {
@@ -95,7 +95,7 @@ const HomePage = () => {
           setLogs([{ text: "Re-initializing scanner...", status: "PENDING" }]);
           return 0;
         }
-        
+
         const logIndex = Math.floor((prev / 100) * logsSequence.length);
         if (logIndex >= 0 && logIndex < logsSequence.length) {
           setLogs((currentLogs) => {
@@ -106,7 +106,7 @@ const HomePage = () => {
             return currentLogs;
           });
         }
-        
+
         return prev + 1;
       });
     }, 150);
@@ -123,12 +123,14 @@ const HomePage = () => {
       className="overflow-hidden"
     >
       <Helmet>
-        <title>Ruiru Auto Garage | Dealership-Grade Diagnostics & Mechanical Repairs</title>
+        <title>
+          Motion Zip Ltd | Dealership-Grade Diagnostics & Mechanical Repairs
+        </title>
         <meta
           name="description"
-          content="Kiambu's premier independent service center. Specializing in advanced diagnostics, engine tuning, gearbox overhauls, and auto AC servicing for European & Japanese brands."
+          content="Ruiru's premier independent service center. Specializing in advanced diagnostics, engine tuning, gearbox overhauls, and auto AC servicing for European & Japanese brands."
         />
-        <link rel="canonical" href="https://www.ruiruautogarage.com/" />
+        <link rel="canonical" href="https://motionzipltd.com/" />
       </Helmet>
 
       {/* Hero Section */}
@@ -140,7 +142,7 @@ const HomePage = () => {
           initial={{ scale: 1.05 }}
           animate={{ scale: 1 }}
           transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
-          className="absolute inset-0 bg-cover bg-center z-0 opacity-60"
+          className="absolute inset-0 bg-cover bg-center z-0 opacity-90"
           style={{
             backgroundImage: `url(${HeroImage})`,
           }}
@@ -149,13 +151,12 @@ const HomePage = () => {
         <div className="relative z-20 container-custom w-full max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center text-left">
           {/* Left Hero Description */}
           <div className="lg:col-span-7 space-y-6">
-            <motion.div variants={itemVariants} className="flex items-center gap-2 w-max">
-              <span className="flex h-2.5 w-2.5 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
-              </span>
+            <motion.div
+              variants={itemVariants}
+              className="flex items-center gap-2 w-max"
+            >
               <span className="py-1 px-4 rounded-full bg-primary/10 text-primary border border-primary/20 text-[10px] md:text-xs font-bold uppercase tracking-wider backdrop-blur-md">
-                ✦ KIAMBU'S PREMIER INDEPENDENT GARAGE
+                ✦ RUIRU'S PREMIER INDEPENDENT GARAGE
               </span>
             </motion.div>
 
@@ -164,28 +165,34 @@ const HomePage = () => {
               className="text-4xl md:text-5xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight"
             >
               Dealer-Level <br />
-              <span className="text-primary">Diagnostics</span> <br />
-              & Precision <span className="text-secondary">Car Repairs</span>
+              <span className="text-primary">Diagnostics</span> <br />&
+              Precision <span className="text-light">Car Repairs</span>
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
               className="text-base text-gray-300 font-light leading-relaxed max-w-2xl"
             >
-              Ruiru Auto Garage delivers advanced mechanical engineering, computer diagnostics scanning, and gearbox servicing for Mercedes-Benz, BMW, Audi, VW, Toyota, and Subaru at a fraction of dealership rates.
+              Motion Zip Ltd delivers advanced mechanical engineering, computer
+              diagnostics scanning, and gearbox servicing for Mercedes-Benz,
+              BMW, Audi, VW, Toyota, and Subaru at a fraction of dealership
+              rates.
             </motion.p>
 
-            {/* Core Highlights */}
-            <motion.div variants={itemVariants} className="flex flex-wrap gap-3 pt-2 text-[11px] md:text-xs">
-              <div className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 text-gray-305 rounded-xl font-medium backdrop-blur-sm hover:border-primary/30 transition-colors">
+            {/* Core Highlights make this core text readable */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap gap-3 pt-2 text-[11px] md:text-xs"
+            >
+              <div className="flex items-center gap-2 text-light px-4 py-2 bg-white/5 border border-white/10 text-gray-305 rounded-xl font-medium backdrop-blur-sm hover:border-primary/30 transition-colors">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
                 Manufacturer Software
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 text-gray-305 rounded-xl font-medium backdrop-blur-sm hover:border-secondary/30 transition-colors">
+              <div className="flex items-center text-light gap-2 px-4 py-2 bg-white/5 border border-white/10 text-gray-305 rounded-xl font-medium backdrop-blur-sm hover:border-secondary/30 transition-colors">
                 <span className="w-1.5 h-1.5 rounded-full bg-secondary"></span>
                 Certified Technicians
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 text-gray-350 rounded-xl font-medium backdrop-blur-sm hover:border-green-500/30 transition-colors">
+              <div className="flex items-center gap-2 text-light px-4 py-2 bg-white/5 border border-white/10 text-gray-350 rounded-xl font-medium backdrop-blur-sm hover:border-green-500/30 transition-colors">
                 <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
                 Real-Time Portal
               </div>
@@ -196,23 +203,33 @@ const HomePage = () => {
               variants={itemVariants}
               className="flex flex-col sm:flex-row gap-4 pt-4 text-xs font-bold"
             >
-              <Link to="/contact" className="group relative overflow-hidden btn-primary text-sm px-8 py-4 shadow-lg shadow-primary/20 text-center">
+              <Link
+                to="/contact"
+                className="group relative overflow-hidden btn-primary text-sm px-8 py-4 shadow-lg shadow-primary/20 text-center"
+              >
                 <span className="relative z-10 flex items-center justify-center gap-2">
                   Book Diagnostic Scan
-                  <SparklesIcon className="w-4 h-4 animate-pulse text-secondary" />
                 </span>
                 <span className="absolute inset-0 bg-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
               </Link>
-              <Link to="/portal/login" className="group btn-secondary text-sm px-8 py-4 text-center">
+              <Link
+                to="/portal/login"
+                className="group btn-secondary text-sm px-8 py-4 text-center"
+              >
                 <span className="flex items-center justify-center gap-2">
                   Access Portal
-                  <span className="transition-transform group-hover:translate-x-1">→</span>
+                  <span className="transition-transform group-hover:translate-x-1">
+                    →
+                  </span>
                 </span>
               </Link>
             </motion.div>
 
             {/* Rating Badges */}
-            <motion.div variants={itemVariants} className="flex items-center gap-3 pt-2 text-xs">
+            <motion.div
+              variants={itemVariants}
+              className="flex items-center gap-3 pt-2 text-xs"
+            >
               <div className="flex items-center gap-1 bg-white/5 border border-white/10 px-2.5 py-1 rounded-lg">
                 <div className="flex text-secondary">
                   {[...Array(5)].map((_, i) => (
@@ -242,8 +259,12 @@ const HomePage = () => {
                     <AdjustmentsHorizontalIcon className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-white">Live Diagnostics Hub</h4>
-                    <p className="text-[9px] text-gray-450">ECU Scanner Online</p>
+                    <h4 className="text-xs font-bold text-white">
+                      Live Diagnostics Hub
+                    </h4>
+                    <p className="text-[9px] text-gray-450">
+                      ECU Scanner Online
+                    </p>
                   </div>
                 </div>
                 <span className="text-[9px] px-2.5 py-0.5 bg-green-500/10 text-green-400 border border-green-500/20 rounded-full font-bold uppercase tracking-wider animate-pulse">
@@ -256,27 +277,81 @@ const HomePage = () => {
                 {/* Glowing Laser Scan Bar */}
                 <motion.div
                   animate={{ y: [-40, 40] }}
-                  transition={{ repeat: Infinity, duration: 2, repeatType: "reverse", ease: "easeInOut" }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 2,
+                    repeatType: "reverse",
+                    ease: "easeInOut",
+                  }}
                   className="absolute left-0 w-full h-[2px] bg-primary shadow-[0_0_8px_#E63946] z-10"
                 ></motion.div>
-                
+
                 {/* SVG Car Outline */}
-                <svg className="w-40 h-20 text-white/20" viewBox="0 0 100 50" fill="none" stroke="currentColor" strokeWidth="1">
-                  <path d="M15 15 H85 C88 15 90 20 90 25 C90 30 88 35 85 35 H15 C12 35 10 30 10 25 C10 20 12 15 15 15 Z" strokeDasharray="2 2" />
+                <svg
+                  className="w-40 h-20 text-white/20"
+                  viewBox="0 0 100 50"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                >
+                  <path
+                    d="M15 15 H85 C88 15 90 20 90 25 C90 30 88 35 85 35 H15 C12 35 10 30 10 25 C10 20 12 15 15 15 Z"
+                    strokeDasharray="2 2"
+                  />
                   {/* Wheel wells */}
-                  <circle cx="28" cy="15" r="3" className={`${scanProgress > 25 ? "text-green-500/50" : "text-white/10"}`} fill="currentColor" />
-                  <circle cx="28" cy="35" r="3" className={`${scanProgress > 25 ? "text-green-500/50" : "text-white/10"}`} fill="currentColor" />
-                  <circle cx="72" cy="15" r="3" className={`${scanProgress > 75 ? "text-green-500/50" : "text-white/10"}`} fill="currentColor" />
-                  <circle cx="72" cy="35" r="3" className={`${scanProgress > 75 ? "text-green-500/50" : "text-white/10"}`} fill="currentColor" />
+                  <circle
+                    cx="28"
+                    cy="15"
+                    r="3"
+                    className={`${scanProgress > 25 ? "text-green-500/50" : "text-white/10"}`}
+                    fill="currentColor"
+                  />
+                  <circle
+                    cx="28"
+                    cy="35"
+                    r="3"
+                    className={`${scanProgress > 25 ? "text-green-500/50" : "text-white/10"}`}
+                    fill="currentColor"
+                  />
+                  <circle
+                    cx="72"
+                    cy="15"
+                    r="3"
+                    className={`${scanProgress > 75 ? "text-green-500/50" : "text-white/10"}`}
+                    fill="currentColor"
+                  />
+                  <circle
+                    cx="72"
+                    cy="35"
+                    r="3"
+                    className={`${scanProgress > 75 ? "text-green-500/50" : "text-white/10"}`}
+                    fill="currentColor"
+                  />
                   {/* Engine sensor indicator */}
-                  <circle cx="50" cy="25" r="4" className={`${scanProgress > 50 ? "text-red-500 animate-ping" : "text-white/10"}`} fill="currentColor" />
-                  <circle cx="50" cy="25" r="2" className={`${scanProgress > 50 ? "text-red-500" : "text-white/10"}`} fill="currentColor" />
+                  <circle
+                    cx="50"
+                    cy="25"
+                    r="4"
+                    className={`${scanProgress > 50 ? "text-red-500 animate-ping" : "text-white/10"}`}
+                    fill="currentColor"
+                  />
+                  <circle
+                    cx="50"
+                    cy="25"
+                    r="2"
+                    className={`${scanProgress > 50 ? "text-red-500" : "text-white/10"}`}
+                    fill="currentColor"
+                  />
                 </svg>
-                
-                <div className="absolute top-2 left-3 text-[8px] uppercase tracking-widest text-gray-400 font-bold">OBD-II CAN telemetry</div>
+
+                <div className="absolute top-2 left-3 text-[8px] uppercase tracking-widest text-gray-400 font-bold">
+                  OBD-II CAN telemetry
+                </div>
                 <div className="absolute bottom-2 right-3 flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping"></span>
-                  <span className="text-[8px] text-red-400 font-mono">DTC: Cylinder 3 Misfire</span>
+                  <span className="text-[8px] text-red-400 font-mono">
+                    DTC: Cylinder 3 Misfire
+                  </span>
                 </div>
               </div>
 
@@ -284,7 +359,7 @@ const HomePage = () => {
               <div className="space-y-1.5 text-xs text-white">
                 <div className="flex justify-between">
                   <span className="text-gray-400">Active Test:</span>
-                  <span className="font-bold">BMW 320i F30 (KDB 456Z)</span>
+                  <span className="font-bold">BMW 320i F30 (KDB ***Z)</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-400">Target ECU Module:</span>
@@ -292,7 +367,9 @@ const HomePage = () => {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-400">Progress:</span>
-                  <span className="text-primary font-bold">{scanProgress}% Complete</span>
+                  <span className="text-primary font-bold">
+                    {scanProgress}% Complete
+                  </span>
                 </div>
               </div>
 
@@ -313,10 +390,10 @@ const HomePage = () => {
                       log.status === "FAULT"
                         ? "text-red-400"
                         : log.status === "DONE"
-                        ? "text-secondary font-bold"
-                        : log.status === "OK"
-                        ? "text-green-400"
-                        : "text-gray-400"
+                          ? "text-secondary font-bold"
+                          : log.status === "OK"
+                            ? "text-green-400"
+                            : "text-gray-400"
                     }`}
                   >
                     <span>&gt; {log.text}</span>
@@ -338,20 +415,64 @@ const HomePage = () => {
         </motion.div>
       </section>
 
-      {/* Brands We Service */}
-      <section className="py-10 bg-white dark:bg-dark border-b border-gray-100 dark:border-white/5">
+      {/* Brands We Service Carousel */}
+      <section className="py-10 bg-white dark:bg-dark border-b border-gray-100 dark:border-white/5 overflow-hidden">
         <div className="container-custom">
           <p className="text-center text-[10px] md:text-xs font-bold text-gray-450 dark:text-gray-500 uppercase tracking-widest mb-6">
             Expertly Servicing Leading Passenger & SUV Brands
           </p>
-          <div className="flex flex-wrap justify-center items-center gap-6 md:gap-12 opacity-75">
-            {["Mercedes-Benz", "BMW", "Audi", "Volkswagen", "Range Rover", "Toyota", "Subaru", "Nissan", "Mazda", "Hyundai"].map((brand, idx) => (
-              <span
-                key={idx}
-                className="font-black text-xs md:text-sm text-gray-700 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-colors cursor-default"
+        </div>
+        {/* Infinite scrolling marquee track */}
+        <div className="relative w-full flex items-center bg-gray-50/50 dark:bg-dark-lighter/10 py-6 border-y border-gray-100/50 dark:border-white/5">
+          <div className="flex w-max animate-marquee gap-8 md:gap-12 items-center">
+            {/* First Set of Logos */}
+            {[
+              { name: "Mercedes-Benz", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/mercedes-benz.png" },
+              { name: "BMW", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/bmw.png" },
+              { name: "Audi", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/audi.png" },
+              { name: "Volkswagen", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/volkswagen.png" },
+              { name: "Land Rover", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/land-rover.png" },
+              { name: "Toyota", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/toyota.png" },
+              { name: "Subaru", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/subaru.png" },
+              { name: "Nissan", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/nissan.png" },
+              { name: "Mazda", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/mazda.png" },
+              { name: "Hyundai", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/hyundai.png" },
+            ].map((brand, idx) => (
+              <div
+                key={`brand-1-${idx}`}
+                className="opacity-90 hover:opacity-100 transition-all hover:scale-105 duration-300 bg-white px-5 py-3 rounded-xl flex items-center justify-center shadow-sm border border-gray-250/20 h-16 w-32 md:h-20 md:w-40 flex-shrink-0"
               >
-                {brand}
-              </span>
+                <img
+                  src={brand.url}
+                  alt={brand.name}
+                  className="h-10 md:h-12 w-auto object-contain"
+                />
+              </div>
+            ))}
+            
+            {/* Second Set of Logos (Duplicate for Infinite Scroll Loop) */}
+            {[
+              { name: "Mercedes-Benz", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/mercedes-benz.png" },
+              { name: "BMW", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/bmw.png" },
+              { name: "Audi", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/audi.png" },
+              { name: "Volkswagen", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/volkswagen.png" },
+              { name: "Land Rover", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/land-rover.png" },
+              { name: "Toyota", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/toyota.png" },
+              { name: "Subaru", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/subaru.png" },
+              { name: "Nissan", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/nissan.png" },
+              { name: "Mazda", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/mazda.png" },
+              { name: "Hyundai", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/hyundai.png" },
+            ].map((brand, idx) => (
+              <div
+                key={`brand-2-${idx}`}
+                className="opacity-90 hover:opacity-100 transition-all hover:scale-105 duration-300 bg-white px-5 py-3 rounded-xl flex items-center justify-center shadow-sm border border-gray-250/20 h-16 w-32 md:h-20 md:w-40 flex-shrink-0"
+              >
+                <img
+                  src={brand.url}
+                  alt={brand.name}
+                  className="h-10 md:h-12 w-auto object-contain"
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -361,13 +482,17 @@ const HomePage = () => {
       <section className="section-padding bg-gray-50 dark:bg-dark-lighter/20 relative">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <span className="text-xs uppercase tracking-wider font-extrabold text-primary">Core Specializations</span>
+            <span className="text-xs uppercase tracking-wider font-extrabold text-primary">
+              Core Specializations
+            </span>
             <h2 className="text-3xl md:text-4xl font-bold mt-2 text-gray-900 dark:text-white">
               Professional Automotive Services
             </h2>
             <div className="w-20 h-1 bg-primary mx-auto rounded-full mt-3"></div>
             <p className="mt-4 text-gray-650 dark:text-gray-450 max-w-2xl mx-auto text-xs md:text-sm font-light leading-relaxed">
-              Our technicians carry out diagnostic scans, suspension calibrations, automatic gearbox flushing, and complex mechanical repairs using factory-certified OEM diagnostics.
+              Our technicians carry out diagnostic scans, suspension
+              calibrations, automatic gearbox flushing, and complex mechanical
+              repairs using factory-certified OEM diagnostics.
             </p>
           </div>
 
@@ -438,7 +563,9 @@ const HomePage = () => {
               <span className="text-primary">Live in Real-Time</span>
             </h2>
             <p className="text-gray-650 dark:text-gray-300 text-sm md:text-base font-light leading-relaxed">
-              No more guesswork. Log in to our secure Client Portal using a simple SMS verification code to review vehicle inspection logs, approve estimates, sign digitally, and view intake photo records.
+              No more guesswork. Log in to our secure Client Portal using a
+              simple SMS verification code to review vehicle inspection logs,
+              approve estimates, sign digitally, and view intake photo records.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
               <div className="flex gap-3">
@@ -446,8 +573,13 @@ const HomePage = () => {
                   <ComputerDesktopIcon className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900 dark:text-white text-sm">Secure OTP Login</h4>
-                  <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 font-light">Passwordless, instant login codes dispatched straight to your phone.</p>
+                  <h4 className="font-bold text-gray-900 dark:text-white text-sm">
+                    Secure OTP Login
+                  </h4>
+                  <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 font-light">
+                    Passwordless, instant login codes dispatched straight to
+                    your phone.
+                  </p>
                 </div>
               </div>
               <div className="flex gap-3">
@@ -455,16 +587,27 @@ const HomePage = () => {
                   <ClipboardDocumentCheckIcon className="w-5 h-5" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900 dark:text-white text-sm">Approve Work Estimates</h4>
-                  <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 font-light">Review transparent cost breakdowns and select items to approve instantly.</p>
+                  <h4 className="font-bold text-gray-900 dark:text-white text-sm">
+                    Approve Work Estimates
+                  </h4>
+                  <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 font-light">
+                    Review transparent cost breakdowns and select items to
+                    approve instantly.
+                  </p>
                 </div>
               </div>
             </div>
             <div className="pt-4 flex flex-wrap gap-4 text-xs">
-              <Link to="/portal/login" className="btn-primary px-6 py-3 font-bold shadow-lg shadow-primary/20">
+              <Link
+                to="/portal/login"
+                className="btn-primary px-6 py-3 font-bold shadow-lg shadow-primary/20"
+              >
                 Log In to Customer Portal
               </Link>
-              <a href="https://wa.me/254748333555" className="px-6 py-3 bg-white/5 hover:bg-white/10 text-gray-850 dark:text-white border border-gray-250 dark:border-white/10 font-bold rounded-2xl transition-all">
+              <a
+                href="https://wa.me/254748333555"
+                className="px-6 py-3 bg-white/5 hover:bg-white/10 text-gray-850 dark:text-white border border-gray-250 dark:border-white/10 font-bold rounded-2xl transition-all"
+              >
                 Ask a Question via WhatsApp
               </a>
             </div>
@@ -489,9 +632,15 @@ const HomePage = () => {
 
             {/* Vehicle Mockup */}
             <div className="space-y-0.5">
-              <span className="text-[9px] text-gray-400 uppercase tracking-widest font-bold">Active Check-In Log</span>
-              <h3 className="text-sm font-extrabold text-gray-900 dark:text-white">Subaru Outback 2.5i (KDD 123X)</h3>
-              <p className="text-[10px] text-gray-500">Intake Mileage: 124,500 KM</p>
+              <span className="text-[9px] text-gray-400 uppercase tracking-widest font-bold">
+                Active Check-In Log
+              </span>
+              <h3 className="text-sm font-extrabold text-gray-900 dark:text-white">
+                Subaru Outback 2.5i (KDD ***X)
+              </h3>
+              <p className="text-[10px] text-gray-500">
+                Intake Mileage: 124,500 KM
+              </p>
             </div>
 
             {/* Checklist Mockup */}
@@ -501,7 +650,9 @@ const HomePage = () => {
                 <span className="font-bold text-green-500">✓ Normal</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-500">Brake Pad Thickness (Front)</span>
+                <span className="text-gray-500">
+                  Brake Pad Thickness (Front)
+                </span>
                 <span className="font-bold text-red-500">⚠ Worn (3mm)</span>
               </div>
               <div className="flex justify-between">
@@ -514,7 +665,9 @@ const HomePage = () => {
             <div className="pt-1 flex justify-between items-center text-xs">
               <div>
                 <p className="text-[9px] text-gray-400">Total Work Estimate</p>
-                <p className="text-xs font-extrabold text-primary">KES 14,500</p>
+                <p className="text-xs font-extrabold text-primary">
+                  KES 14,500
+                </p>
               </div>
               <span className="px-3 py-1 bg-primary text-white rounded-lg font-bold text-[10px] shadow-sm shadow-primary/10">
                 Review Estimate
@@ -533,7 +686,8 @@ const HomePage = () => {
             </h2>
             <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
             <p className="mt-4 text-gray-650 dark:text-gray-400 max-w-2xl mx-auto text-xs md:text-sm font-light">
-              Our streamlined vehicle check-in and repair workflow keeps you in full control.
+              Our streamlined vehicle check-in and repair workflow keeps you in
+              full control.
             </p>
           </div>
 
@@ -603,7 +757,9 @@ const HomePage = () => {
                 High Performance
               </h3>
               <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light">
-                We believe premium maintenance shouldn't come with a premium price tag. Our technicians carry out top-tier diagnostics with absolute attention to detail.
+                We believe premium maintenance shouldn't come with a premium
+                price tag. Our technicians carry out top-tier diagnostics with
+                absolute attention to detail.
               </p>
             </motion.div>
 
@@ -619,7 +775,9 @@ const HomePage = () => {
                 Transparent Pricing
               </h3>
               <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light">
-                No surprises. You will receive transparent quotes via the customer portal detailing exactly what parts and labor are required, before we touch your vehicle.
+                No surprises. You will receive transparent quotes via the
+                customer portal detailing exactly what parts and labor are
+                required, before we touch your vehicle.
               </p>
             </motion.div>
 
@@ -635,7 +793,8 @@ const HomePage = () => {
                 Satisfaction Guaranteed
               </h3>
               <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed font-light">
-                We treat every car as if it were our own. Our repairs come with a satisfaction guarantee and direct support channels.
+                We treat every car as if it were our own. Our repairs come with
+                a satisfaction guarantee and direct support channels.
               </p>
             </motion.div>
           </div>
@@ -657,7 +816,7 @@ const HomePage = () => {
               {
                 name: "James Mwangi",
                 quote:
-                  "Always professional and thorough. Ruiru Auto Garage makes vehicle repairs stress-free and very transparent.",
+                  "Always professional and thorough. Motion Zip Ltd makes vehicle repairs stress-free and very transparent.",
                 color: "bg-blue-500",
               },
               {
@@ -740,7 +899,7 @@ const HomePage = () => {
               answer="Yes. Our portal lists estimates item-by-item (parts, labor, taxes). You can review details and check which items you authorize and sign the work order digitally."
             />
             <FAQItem
-              question="Where is Ruiru Auto Garage located?"
+              question="Where is Motion Zip Ltd located?"
               answer="Our service center is located along Mathigu Road, Ruiru Town. We also offer emergency towing and roadside assistance within Kiambu and Nairobi Counties."
             />
           </div>

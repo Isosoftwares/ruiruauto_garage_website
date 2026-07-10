@@ -62,7 +62,7 @@ const AreaDetailPage = () => {
   }
 
   // Calculate dynamic WhatsApp text booking link
-  const whatsappUrl = `https://wa.me/254748333555?text=Hi%20Ruiru%20Auto%20Garage,%20I'm%20in%20"${encodeURIComponent(
+  const whatsappUrl = `https://wa.me/254723669437?text=Hi%20Motion%20Zip%20Ltd,%20I'm%20in%20"${encodeURIComponent(
     area.name
   )}"%20and%20need%20assistance/booking%20for%20my%20vehicle.`;
 
@@ -74,7 +74,7 @@ const AreaDetailPage = () => {
       className="min-h-screen pt-32 pb-20 bg-gray-50 dark:bg-dark"
     >
       <Helmet>
-        <title>{area.metaTitle || `${area.name} Car Service & Repair | Ruiru Auto Garage`}</title>
+        <title>{area.metaTitle || `${area.name} Car Service & Repair | Motion Zip Ltd`}</title>
         <meta
           name="description"
           content={area.metaDescription || `Get professional vehicle repair, maintenance, and emergency breakdown recovery in ${area.name}.`}
@@ -82,7 +82,7 @@ const AreaDetailPage = () => {
         {area.metaKeywords && (
           <meta name="keywords" content={area.metaKeywords} />
         )}
-        <link rel="canonical" href={`https://www.ruiruautogarage.com/areas/${slug}`} />
+        <link rel="canonical" href={`https://motionzipltd.com/areas/${slug}`} />
       </Helmet>
 
       <div className="container-custom max-w-5xl">
@@ -110,7 +110,7 @@ const AreaDetailPage = () => {
               </div>
               <div>
                 <span className="inline-block text-xs font-semibold uppercase tracking-wider text-amber-450">
-                  Ruiru Auto Garage Coverage Area
+                  Motion Zip Ltd Coverage Area
                 </span>
                 <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight mt-1">
                   {area.name}

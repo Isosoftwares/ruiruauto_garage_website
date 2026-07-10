@@ -1,4 +1,4 @@
-// Ruiru Auto Garage - Zero Cache Service Worker
+// Motion Zip Ltd - Zero Cache Service Worker
 // Satisfies PWA installation criteria without caching stale pages.
 
 self.addEventListener("install", (event) => {

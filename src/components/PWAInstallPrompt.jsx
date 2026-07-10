@@ -76,7 +76,7 @@ const PWAInstallPrompt = () => {
                 Install Portal App
               </h4>
               <p className="text-xs text-gray-400 mt-1 leading-relaxed font-light">
-                Add Ruiru Auto Garage to your home screen for quick, offline-capable
+                Add Motion Zip Ltd to your home screen for quick, offline-capable
                 access to your vehicle records, invoices, and estimates.
               </p>
             </div>
