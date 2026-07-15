@@ -59,9 +59,15 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-bold mb-6 text-gray-900 dark:text-white">
-              Quick Links
-            </h3>
+            <a
+              href="http://admin.motionzipltd.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <h3 className="text-lg font-bold mb-6 text-gray-900 dark:text-white">
+                Quick Links
+              </h3>
+            </a>
             <ul className="space-y-4">
               <li>
                 <Link
@@ -165,7 +171,6 @@ const Footer = () => {
                     <br />
                     Along Thika Super Highway
                   </a>
-                  
                 </div>
               </li>
               <li className="flex items-center gap-3 text-gray-600 dark:text-gray-400">
