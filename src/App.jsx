@@ -27,6 +27,7 @@ import PortalQuotes from "./pages/portal/PortalQuotes";
 import PortalCheckIns from "./pages/portal/PortalCheckIns";
 
 import WhatsAppFloat from "./components/WhatsAppFloat";
+import CallFloat from "./components/CallFloat";
 import PWAInstallPrompt from "./components/PWAInstallPrompt";
 import useScrollToTop from "./components/useScrollToTop";
 
@@ -50,6 +51,7 @@ function App() {
   return (
     <div className="relative">
       <WhatsAppFloat />
+      <CallFloat />
       <PWAInstallPrompt />
       <ToastContainer
         position="top-center"

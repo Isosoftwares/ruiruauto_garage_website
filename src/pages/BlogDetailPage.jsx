@@ -139,7 +139,7 @@ export default function BlogDetailPage() {
           className="bg-white dark:bg-dark-lighter p-8 rounded-3xl border border-gray-100 dark:border-white/5 shadow-sm"
         >
           <div
-            className="blog-content-body max-w-none text-gray-750 dark:text-gray-300 leading-relaxed text-base space-y-6"
+            className="blog-content-body max-w-none text-gray-700 dark:text-gray-300 leading-relaxed text-base space-y-6"
             dangerouslySetInnerHTML={{ __html: blog.content }}
           />
 
@@ -149,7 +149,7 @@ export default function BlogDetailPage() {
               <MapPinIcon className="w-5 h-5 text-primary" />
               {blog.area ? `Need Car Service in ${blog.area.name}?` : "Dealership-Grade Garage Service"}
             </h3>
-            <p className="text-sm text-gray-650 dark:text-gray-400">
+            <p className="text-sm text-gray-600 dark:text-gray-400">
               {blog.area ? (
                 `If you are driving in or commuting from ${blog.area.name}, avoid tow trucks by maintaining your vehicle at Motion Zip Ltd on Mathigu Rd, Ruiru. We provide precise computer diagnostics, engine repairs, brake services, and suspension updates.`
               ) : (

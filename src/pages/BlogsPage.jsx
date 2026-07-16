@@ -88,7 +88,7 @@ export default function BlogsPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-base text-gray-550 dark:text-gray-400"
+            className="text-base text-gray-500 dark:text-gray-400"
           >
             Expert mechanical advice, diagnostic tips, and coverage area updates from our experienced team at Motion Zip Ltd.
           </motion.p>
@@ -219,7 +219,7 @@ export default function BlogsPage() {
                     </h3>
 
                     {/* Snippet */}
-                    <p className="text-sm text-gray-550 dark:text-gray-400 line-clamp-3">
+                    <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-3">
                       {blog.summary || "Click to read this article's full diagnostic overview."}
                     </p>
                   </div>

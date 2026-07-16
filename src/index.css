@@ -121,15 +121,15 @@
   @apply text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white mt-8 mb-4;
 }
 .blog-content-body p {
-  @apply text-base text-gray-705 dark:text-gray-300 leading-relaxed mb-4;
+  @apply text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-4;
 }
 .blog-content-body ul {
   @apply list-disc pl-5 mb-4 space-y-2;
 }
 .blog-content-body li {
-  @apply text-base text-gray-705 dark:text-gray-300;
+  @apply text-base text-gray-700 dark:text-gray-300;
 }
 .blog-content-body strong {
-  @apply font-bold text-gray-950 dark:text-white;
+  @apply font-bold text-gray-900 dark:text-white;
 }
 
