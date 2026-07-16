@@ -13,6 +13,8 @@ import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import AreasPage from "./pages/AreasPage";
 import AreaDetailPage from "./pages/AreaDetailPage";
+import BlogsPage from "./pages/BlogsPage";
+import BlogDetailPage from "./pages/BlogDetailPage";
 
 // Client Portal
 import { ClientAuthProvider } from "./hooks/useClientAuth";
@@ -73,6 +75,8 @@ function App() {
                   <Route path="/services/:slug" element={<ServiceDetailPage />} />
                   <Route path="/areas" element={<AreasPage />} />
                   <Route path="/areas/:slug" element={<AreaDetailPage />} />
+                  <Route path="/blogs" element={<BlogsPage />} />
+                  <Route path="/blogs/:slug" element={<BlogDetailPage />} />
                   <Route path="/about" element={<AboutPage />} />
                   <Route path="/contact" element={<ContactPage />} />
 
