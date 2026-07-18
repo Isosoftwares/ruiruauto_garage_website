@@ -15,6 +15,10 @@ import AreasPage from "./pages/AreasPage";
 import AreaDetailPage from "./pages/AreaDetailPage";
 import BlogsPage from "./pages/BlogsPage";
 import BlogDetailPage from "./pages/BlogDetailPage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import TermsOfServicePage from "./pages/TermsOfServicePage";
+import CookiesPolicyPage from "./pages/CookiesPolicyPage";
+import DataDeletionPage from "./pages/DataDeletionPage";
 
 // Client Portal
 import { ClientAuthProvider } from "./hooks/useClientAuth";
@@ -81,6 +85,11 @@ function App() {
                   <Route path="/blogs/:slug" element={<BlogDetailPage />} />
                   <Route path="/about" element={<AboutPage />} />
                   <Route path="/contact" element={<ContactPage />} />
+                  <Route path="/contact-us" element={<ContactPage />} />
+                  <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+                  <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+                  <Route path="/cookies-policy" element={<CookiesPolicyPage />} />
+                  <Route path="/data-deletion" element={<DataDeletionPage />} />
 
                   {/* Client Portal Routes */}
                   <Route path="/portal/login" element={<PortalLogin />} />

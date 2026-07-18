@@ -185,15 +185,15 @@ const HomePage = () => {
               className="flex flex-wrap gap-3 pt-2 text-[11px] md:text-xs"
             >
               <div className="flex items-center gap-2 text-light px-4 py-2 bg-white/5 border border-white/10 text-gray-305 rounded-xl font-medium backdrop-blur-sm hover:border-primary/30 transition-colors">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                {/* <span className="w-1.5 h-1.5 rounded-full bg-primary"></span> */}
                 Manufacturer Software
               </div>
               <div className="flex items-center text-light gap-2 px-4 py-2 bg-white/5 border border-white/10 text-gray-305 rounded-xl font-medium backdrop-blur-sm hover:border-secondary/30 transition-colors">
-                <span className="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                {/* <span className="w-1.5 h-1.5 rounded-full bg-secondary"></span> */}
                 Certified Technicians
               </div>
               <div className="flex items-center gap-2 text-light px-4 py-2 bg-white/5 border border-white/10 text-gray-350 rounded-xl font-medium backdrop-blur-sm hover:border-green-500/30 transition-colors">
-                <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
+                {/* <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span> */}
                 Real-Time Portal
               </div>
             </motion.div>

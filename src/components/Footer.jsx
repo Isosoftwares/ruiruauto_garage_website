@@ -4,63 +4,117 @@ import {
   MapPinIcon,
   PhoneIcon,
   EnvelopeIcon,
+  GlobeAltIcon,
 } from "@heroicons/react/24/outline";
-import { SocialIcon } from "react-social-icons";
+import {
+  FaWhatsapp,
+  FaFacebook,
+  FaInstagram,
+  FaTiktok,
+  FaYoutube,
+  FaLinkedin,
+  FaDirections,
+} from "react-icons/fa";
 import Logo from "../assets/graphics/garagelogo.jpeg";
-// Using placeholders for brand icons if specific library not installed, or generic text
-// Assuming react-icons or similar might be available based on package.json,
-// checking package.json: "react-icons": "^4.9.0", "react-social-icons": "^5.15.0"
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const mapDirectionsUrl = "https://maps.app.goo.gl/eCQfJSSpTJnVMwSP9";
+
+  const socialLinks = [
+    {
+      icon: FaWhatsapp,
+      href: "https://wa.me/254748333555",
+      label: "WhatsApp",
+      color: "hover:bg-green-600",
+    },
+    {
+      icon: FaFacebook,
+      href: "https://www.facebook.com/motionzipltd",
+      label: "Facebook",
+      color: "hover:bg-blue-600",
+    },
+    {
+      icon: FaInstagram,
+      href: "https://www.instagram.com/motionzipltd",
+      label: "Instagram",
+      color: "hover:bg-pink-600",
+    },
+    {
+      icon: FaTiktok,
+      href: "https://www.tiktok.com/@motionzipltd",
+      label: "TikTok",
+      color: "hover:bg-black",
+    },
+    {
+      icon: FaYoutube,
+      href: "https://www.youtube.com/@motionzipltd",
+      label: "YouTube",
+      color: "hover:bg-red-600",
+    },
+    {
+      icon: FaLinkedin,
+      href: "https://www.linkedin.com/company/motionzipltd",
+      label: "LinkedIn",
+      color: "hover:bg-blue-700",
+    },
+  ];
 
   return (
     <footer className="bg-white dark:bg-dark-lighter border-t border-gray-200 dark:border-white/5 pt-16 pb-8">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand Column */}
-          <div>
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 overflow-hidden rounded-full border border-primary/50">
+          <div className="space-y-6">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 overflow-hidden rounded-full border border-primary/50 shadow-md">
                 <img
                   src={Logo}
                   alt="Motion Zip Ltd"
                   className="w-full h-full object-cover"
                 />
               </div>
+              <div>
+                <h2 className="text-xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+                  Motion Zip Ltd
+                </h2>
+                <p className="text-xs text-primary font-semibold">
+                  Parent Company
+                </p>
+              </div>
             </div>
-            <p className="text-gray-600 dark:text-gray-400 mb-6">
-              Reliable, professional, and exceptional automotive care. We
-              combine advanced technology with expert craftsmanship to keep you
-              safe on the road.
+            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+              Your Trusted Partner in Automotive & Technology Solutions.
+              Combining advanced technology with expert craftsmanship to keep
+              you moving forward.
             </p>
-            <div className="flex gap-4">
-              {/* Social Icons */}
-              <SocialIcon
-                url="https://www.facebook.com/motionzipltd"
-                style={{ height: 35, width: 35 }}
-                bgColor="#E63946"
-                fgColor="#fff"
-              />
-              <SocialIcon
-                url="https://x.com/motionzipltd"
-                style={{ height: 35, width: 35 }}
-                bgColor="#E63946"
-                fgColor="#fff"
-              />
-              <SocialIcon
-                url="https://www.instagram.com/motionzipltd"
-                style={{ height: 35, width: 35 }}
-                bgColor="#E63946"
-                fgColor="#fff"
-              />
+
+            {/* Connect With Us */}
+            <div className="space-y-2">
+              <p className="text-xs font-bold uppercase tracking-wider text-gray-400">
+                Connect With Us
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {socialLinks.map((social, idx) => (
+                  <a
+                    key={idx}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className={`w-9 h-9 rounded-lg bg-gray-100 dark:bg-white/5 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:text-white ${social.color} transition-all border border-gray-200 dark:border-white/5`}
+                  >
+                    <social.icon className="w-4 h-4" />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick & Navigation Links */}
           <div>
             <a
-              href="http://admin.motionzipltd.com/"
+              href="https://admin.motionzipltd.com"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -68,7 +122,7 @@ const Footer = () => {
                 Quick Links
               </h3>
             </a>
-            <ul className="space-y-4">
+            <ul className="space-y-3 text-sm">
               <li>
                 <Link
                   to="/"
@@ -103,51 +157,68 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/contact"
+                  to="/blogs"
                   className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
                 >
-                  Contact
+                  Latest Blog & Insights
                 </Link>
               </li>
               <li>
                 <Link
                   to="/portal"
-                  className="dark:text-gray-400 hover:text-primary transition-colors font-semibold text-primary"
+                  className="text-primary font-semibold hover:underline"
                 >
                   Client Portal
                 </Link>
               </li>
-              {/* <li>
-                <a
-                  href="https://admin.motionzipltd.com/api"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
-                >
-                  Admin Login
-                </a>
-              </li> */}
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Legal Pages */}
           <div>
             <h3 className="text-lg font-bold mb-6 text-gray-900 dark:text-white">
-              Top Services
+              Legal & Compliance
             </h3>
-            <ul className="space-y-4">
-              <li className="text-gray-600 dark:text-gray-400">
-                Engine Diagnostics
+            <ul className="space-y-3 text-sm">
+              <li>
+                <Link
+                  to="/privacy-policy"
+                  className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+                >
+                  Privacy Policy
+                </Link>
               </li>
-              <li className="text-gray-600 dark:text-gray-400">Brake Repair</li>
-              <li className="text-gray-600 dark:text-gray-400">
-                Suspension Work
+              <li>
+                <Link
+                  to="/terms-of-service"
+                  className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+                >
+                  Terms of Service
+                </Link>
               </li>
-              <li className="text-gray-600 dark:text-gray-400">
-                Oil & Filter Change
+              <li>
+                <Link
+                  to="/cookies-policy"
+                  className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+                >
+                  Cookies Policy
+                </Link>
               </li>
-              <li className="text-gray-600 dark:text-gray-400">
-                Electrical Systems
+              <li>
+                <Link
+                  to="/data-deletion"
+                  className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+                >
+                  Data Deletion Instructions
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/contact-us"
+                  className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+                >
+                  Contact Us
+                </Link>
               </li>
             </ul>
           </div>
@@ -155,63 +226,76 @@ const Footer = () => {
           {/* Contact Info */}
           <div>
             <h3 className="text-lg font-bold mb-6 text-gray-900 dark:text-white">
-              Contact Us
+              Corporate Desk
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3 text-gray-600 dark:text-gray-400">
-                <MapPinIcon className="w-6 h-6 text-primary flex-shrink-0" />
+                <MapPinIcon className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                <div className="space-y-1">
+                  <span>
+                    Mathigu Road, Ruiru Town, Along Thika Superhighway
+                  </span>
+                </div>
+              </li>
+
+              <li className="flex items-start gap-3 text-gray-600 dark:text-gray-400">
+                <PhoneIcon className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                 <div>
                   <a
-                    href="https://www.google.com/maps/dir/?api=1&destination=-1.1457946630675555,36.956170139548476"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-primary transition-colors block"
+                    href="tel:+254748333555"
+                    className="hover:text-primary block transition-colors"
                   >
-                    Mathigu Rd, Ruiru Town,
-                    <br />
-                    Along Thika Super Highway
+                    +254 748 333 555
+                  </a>
+                  <a
+                    href="tel:+254781333555"
+                    className="hover:text-primary block transition-colors"
+                  >
+                    +254 781 333 555
                   </a>
                 </div>
               </li>
-              <li className="flex items-center gap-3 text-gray-600 dark:text-gray-400">
-                <PhoneIcon className="w-5 h-5 text-primary flex-shrink-0" />
-                <a
-                  href="tel:0748333555"
-                  className="hover:text-primary transition-colors"
-                >
-                  0748 333 555
-                </a>
-              </li>
+
               <li className="flex items-center gap-3 text-gray-600 dark:text-gray-400">
                 <EnvelopeIcon className="w-5 h-5 text-primary flex-shrink-0" />
                 <a
-                  href="mailto:contact@motionzipltd.com"
+                  href="mailto:support@motionzipltd.com"
                   className="hover:text-primary transition-colors"
                 >
-                  contact@motionzipltd.com
+                  support@motionzipltd.com
                 </a>
               </li>
-              <li className="pt-2">
-                <div className="rounded-2xl overflow-hidden h-36 border border-gray-250/50 dark:border-white/5 shadow-sm relative">
-                  <iframe
-                    title="Motion Zip Ltd Map Pin"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2612.5580781550575!2d36.956170139548476!3d-1.1457946630675555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2b6d635904c59cf%3A0xd5a0c7361a168229!2sRuiru%20Auto%20Garage!5e1!3m2!1sen!2ske!4v1783055545910!5m2!1sen!2ske"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen=""
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    className="dark:opacity-80"
-                  ></iframe>
-                </div>
+
+              <li className="flex items-center gap-3 text-gray-600 dark:text-gray-400">
+                <GlobeAltIcon className="w-5 h-5 text-primary flex-shrink-0" />
+                <a
+                  href="https://www.motionzipltd.com"
+                  className="hover:text-primary transition-colors"
+                >
+                  www.motionzipltd.com
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-200 dark:border-white/5 pt-8 text-center text-gray-500 dark:text-gray-600 text-sm">
-          <p>&copy; {currentYear} Motion Zip Ltd. All rights reserved.</p>
+        {/* Copyright */}
+        <div className="border-t border-gray-200 dark:border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-gray-500 dark:text-gray-500 text-xs">
+          <p>© 2026 Motion Zip Ltd. All Rights Reserved.</p>
+          <div className="flex gap-4">
+            <Link to="/privacy-policy" className="hover:underline">
+              Privacy
+            </Link>
+            <Link to="/terms-of-service" className="hover:underline">
+              Terms
+            </Link>
+            <Link to="/cookies-policy" className="hover:underline">
+              Cookies
+            </Link>
+            <Link to="/data-deletion" className="hover:underline">
+              Data Deletion
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
