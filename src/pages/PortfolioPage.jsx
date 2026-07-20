@@ -94,7 +94,7 @@ const PortfolioPage = () => {
           <span className="text-xs font-black uppercase tracking-widest text-primary">
             OUR WORK
           </span>
-          <h1 className="text-4xl sm:text-6xl font-black text-gray-900 dark:text-white tracking-tight">
+          <h1 className="text-2xl sm:text-4xl font-black text-gray-900 dark:text-white tracking-tight">
             Portfolio Gallery
           </h1>
           <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base max-w-2xl leading-relaxed">

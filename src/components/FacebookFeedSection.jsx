@@ -33,11 +33,7 @@ const FacebookFeedSection = () => {
         {/* HEADER SECTION */}
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
           <div className="space-y-2">
-            <span className="text-xs font-black uppercase tracking-widest text-primary flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-              FACEBOOK FEED
-            </span>
-            <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-gray-900 dark:text-white">
+            <h2 className="text-xl sm:text-3xl font-black tracking-tight text-gray-900 dark:text-white">
               Latest posts from Facebook Page
             </h2>
             <p className="text-gray-600 dark:text-gray-400 text-sm max-w-xl">
@@ -79,17 +75,35 @@ const FacebookFeedSection = () => {
                 transition={{ duration: 0.3 }}
                 className="group glass-card p-4 bg-gray-50 dark:bg-dark-lighter rounded-3xl border border-gray-200 dark:border-gray-800 hover:border-primary transition-all flex flex-col justify-between overflow-hidden shadow-sm"
               >
-                {/* Media Preview Image */}
-                {post.coverUrl && (
+                {/* Media Preview Image or Video Stream */}
+                {(post.coverUrl || post.videoUrl) && (
                   <div className="relative aspect-[16/10] bg-black rounded-2xl overflow-hidden mb-4">
-                    <img
-                      src={post.coverUrl}
-                      alt={post.caption || "Facebook Post"}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
+                    {post.coverUrl && (
+                      <img
+                        src={post.coverUrl}
+                        alt={post.caption || "Facebook Post"}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    )}
+
+                    {post.videoUrl && (post.videoUrl.includes(".mp4") || post.videoUrl.includes("video") || post.videoUrl.includes("fbcdn")) && (
+                      <video
+                        src={post.videoUrl}
+                        poster={post.coverUrl}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        onError={(e) => {
+                          e.target.style.display = "none";
+                        }}
+                      />
+                    )}
+
                     <div className="absolute top-3 left-3 bg-blue-600/90 backdrop-blur-md text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider flex items-center gap-1">
                       <ChatBubbleLeftEllipsisIcon className="w-3.5 h-3.5" />
-                      Facebook
+                      Facebook {post.videoUrl && post.videoUrl.includes("video") ? "Video" : ""}
                     </div>
                   </div>
                 )}

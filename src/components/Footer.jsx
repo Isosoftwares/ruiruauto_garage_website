@@ -160,7 +160,23 @@ const Footer = () => {
                   to="/portfolio"
                   className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
                 >
-                  Before & After Portfolio
+                  Portfolio
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/facebook"
+                  className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+                >
+                  Facebook Feed
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/tiktok"
+                  className="text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+                >
+                  TikTok Videos
                 </Link>
               </li>
               <li>
