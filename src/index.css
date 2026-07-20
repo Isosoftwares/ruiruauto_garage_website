@@ -29,13 +29,13 @@
     @apply mx-auto px-4 max-w-7xl;
   }
   
-  /* Glassmorphism Utilities */
+  /* Glassmorphism & Card Utilities */
   .glass {
-    @apply bg-white/70 dark:bg-dark-lighter/60 backdrop-blur-xl border border-white/20 dark:border-white/5 shadow-lg;
+    @apply bg-white/90 dark:bg-dark-lighter/90 backdrop-blur-xl border border-gray-200 dark:border-gray-800 shadow-lg transition-all;
   }
   
   .glass-card {
-    @apply glass rounded-2xl p-6 transition-all duration-300 hover:shadow-xl hover:bg-white/80 dark:hover:bg-dark-lighter/80;
+    @apply bg-white dark:bg-dark-lighter rounded-2xl p-6 border border-gray-200 dark:border-gray-800 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-primary;
   }
 
   /* Buttons */
@@ -89,11 +89,11 @@
 
 /* Utility Animations */
 .text-gradient {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-orange-500;
+  @apply text-primary font-bold;
 }
 
 .text-gradient-gold {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-secondary to-yellow-200;
+  @apply text-amber-500 font-bold;
 }
 
 /* Infinite Scrolling Marquee */

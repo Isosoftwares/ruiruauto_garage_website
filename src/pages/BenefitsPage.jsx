@@ -145,7 +145,7 @@ function BenefitsPage() {
           </div>
           <h1 className="text-5xl lg:text-7xl font-bold mb-6 text-gray-900 dark:text-white">
             Transform Your{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">
+            <span className="text-primary">
               Business
             </span>
           </h1>
@@ -353,7 +353,7 @@ function BenefitsPage() {
                 key={index}
                 className="bg-gray-50 dark:bg-white/5 rounded-2xl p-8 border border-gray-200 dark:border-white/5 hover:border-primary/50 transition-all duration-300 group hover:-translate-y-1"
               >
-                <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-500 mb-3 group-hover:scale-110 transition-transform">
+                <div className="text-5xl font-bold text-primary mb-3 group-hover:scale-110 transition-transform">
                   {stat.metric}
                 </div>
                 <div className="text-xl font-semibold text-gray-900 dark:text-white mb-2">

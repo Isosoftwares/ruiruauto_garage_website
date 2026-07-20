@@ -151,7 +151,7 @@ function UseCasesPage() {
           </div>
           <h1 className="text-5xl lg:text-7xl font-bold mb-6 text-gray-900 dark:text-white">
             Perfect For Your{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">
+            <span className="text-primary">
               Business
             </span>
           </h1>

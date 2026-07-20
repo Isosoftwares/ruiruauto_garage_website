@@ -126,7 +126,7 @@ function Login() {
         <div className="w-full max-w-xl relative bg-white dark:bg-white/5 backdrop-blur-md rounded-2xl border border-gray-100 dark:border-white/10 p-8 shadow-2xl">
           <div className="mb-8 flex justify-center">
             {/* Logo replacement text if SVG doesn't work well, but keeping img for now */}
-            <h2 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-orange-400">
+            <h2 className="text-3xl font-bold text-primary">
               RyzonPlus
             </h2>
           </div>

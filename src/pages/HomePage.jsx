@@ -20,6 +20,8 @@ import {
 import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import HeroImage from "../assets/images/hero_premium.png";
+import TikTokFeedSection from "../components/TikTokFeedSection";
+import FacebookFeedSection from "../components/FacebookFeedSection";
 
 // FAQ Component
 const FAQItem = ({ question, answer }) => {
@@ -532,7 +534,7 @@ const HomePage = () => {
               <motion.div
                 key={idx}
                 whileHover={{ y: -5 }}
-                className="bg-white dark:bg-dark-lighter p-5 md:p-6 rounded-3xl border border-gray-250/50 dark:border-white/5 shadow-sm hover:shadow-md transition-all flex gap-4"
+                className="bg-white dark:bg-dark-lighter p-5 md:p-6 rounded-3xl border border-gray-200 dark:border-gray-800 hover:border-primary shadow-sm hover:shadow-md transition-all flex gap-4"
               >
                 <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
                   {srv.icon}
@@ -748,7 +750,7 @@ const HomePage = () => {
             {/* Feature 1 */}
             <motion.div
               whileHover={{ scale: 1.02 }}
-              className="glass-card border-t-4 border-t-primary p-6 bg-white dark:bg-dark-lighter rounded-3xl"
+              className="glass-card border-t-4 border-t-primary p-6 bg-white dark:bg-dark-lighter rounded-3xl border-gray-200 dark:border-gray-800"
             >
               <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6">
                 <WrenchScrewdriverIcon className="w-6 h-6" />
@@ -766,9 +768,9 @@ const HomePage = () => {
             {/* Feature 2 */}
             <motion.div
               whileHover={{ scale: 1.02 }}
-              className="glass-card border-t-4 border-t-secondary p-6 bg-white dark:bg-dark-lighter rounded-3xl"
+              className="glass-card border-t-4 border-t-black dark:border-t-white p-6 bg-white dark:bg-dark-lighter rounded-3xl border-gray-200 dark:border-gray-800"
             >
-              <div className="w-12 h-12 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary mb-6">
+              <div className="w-12 h-12 bg-black/10 dark:bg-white/10 rounded-2xl flex items-center justify-center text-gray-900 dark:text-white mb-6">
                 <CurrencyDollarIcon className="w-6 h-6" />
               </div>
               <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">
@@ -784,9 +786,9 @@ const HomePage = () => {
             {/* Feature 3 */}
             <motion.div
               whileHover={{ scale: 1.02 }}
-              className="glass-card border-t-4 border-t-green-500 p-6 bg-white dark:bg-dark-lighter rounded-3xl"
+              className="glass-card border-t-4 border-t-primary p-6 bg-white dark:bg-dark-lighter rounded-3xl border-gray-200 dark:border-gray-800"
             >
-              <div className="w-12 h-12 bg-green-500/10 rounded-2xl flex items-center justify-center text-green-550 mb-6">
+              <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6">
                 <HandThumbUpIcon className="w-6 h-6" />
               </div>
               <h3 className="text-lg font-bold mb-2 text-gray-900 dark:text-white">
@@ -817,31 +819,31 @@ const HomePage = () => {
                 name: "James Mwangi",
                 quote:
                   "Always professional and thorough. Motion Zip Ltd makes vehicle repairs stress-free and very transparent.",
-                color: "bg-blue-500",
+                color: "bg-primary",
               },
               {
                 name: "Peter Kamau",
                 quote:
                   "Excellent experience from start to finish. Being able to log in to my portal and see my brake pad inspection photo was incredible.",
-                color: "bg-green-500",
+                color: "bg-gray-900 dark:bg-white",
               },
               {
                 name: "Aisha Njeri",
                 quote:
                   "Honest mechanics and very reasonable prices. I've been coming here for routine timing belt and engine tune-ups.",
-                color: "bg-purple-500",
+                color: "bg-primary",
               },
               {
                 name: "Daniel Odhiambo",
                 quote:
                   "Super quick and reliable! Highly recommend their electrical scanning and gearbox servicing.",
-                color: "bg-orange-500",
+                color: "bg-gray-900 dark:bg-white",
               },
             ].map((t, i) => (
               <motion.div
                 key={i}
                 whileHover={{ y: -5 }}
-                className="glass-card relative overflow-hidden p-5 bg-gray-50/50 dark:bg-dark-lighter/40 rounded-3xl border border-gray-250/30 dark:border-white/5 shadow-sm"
+                className="glass-card relative overflow-hidden p-5 bg-white dark:bg-dark-lighter rounded-3xl border border-gray-200 dark:border-gray-800 shadow-sm hover:border-primary"
               >
                 <div
                   className={`absolute top-0 left-0 w-1 h-full ${t.color}`}
@@ -871,6 +873,10 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* TikTok & Facebook Live Social Feeds */}
+      <TikTokFeedSection />
+      <FacebookFeedSection />
+
       {/* FAQ Section */}
       <section className="section-padding bg-gray-50 dark:bg-dark-lighter/30">
         <div className="container-custom max-w-3xl">
@@ -881,7 +887,7 @@ const HomePage = () => {
             <div className="w-20 h-1 bg-primary mx-auto rounded-full"></div>
           </div>
 
-          <div className="glass-card p-4 md:p-8 shadow-sm bg-white dark:bg-dark-lighter rounded-3xl border border-gray-250/50 dark:border-white/5">
+          <div className="glass-card p-4 md:p-8 shadow-sm bg-white dark:bg-dark-lighter rounded-3xl border border-gray-200 dark:border-gray-800">
             <FAQItem
               question="What brands of vehicles do you specialize in?"
               answer="We service all passenger cars and SUVs, but carry specialized manufacturer diagnostics for European (Mercedes-Benz, BMW, Audi, VW, Land Rover) and Japanese (Toyota, Lexus, Subaru, Honda, Mazda, Nissan) models."
