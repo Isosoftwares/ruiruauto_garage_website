@@ -18,6 +18,7 @@ import BlogDetailPage from "./pages/BlogDetailPage";
 import PortfolioPage from "./pages/PortfolioPage";
 import FacebookFeedPage from "./pages/FacebookFeedPage";
 import TikTokFeedPage from "./pages/TikTokFeedPage";
+import TikTokCallbackPage from "./pages/TikTokCallbackPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import TermsOfServicePage from "./pages/TermsOfServicePage";
 import CookiesPolicyPage from "./pages/CookiesPolicyPage";
@@ -89,6 +90,7 @@ function App() {
                   <Route path="/portfolio" element={<PortfolioPage />} />
                   <Route path="/facebook" element={<FacebookFeedPage />} />
                   <Route path="/tiktok" element={<TikTokFeedPage />} />
+                  <Route path="/tiktok/callback" element={<TikTokCallbackPage />} />
                   <Route path="/about" element={<AboutPage />} />
                   <Route path="/contact" element={<ContactPage />} />
                   <Route path="/contact-us" element={<ContactPage />} />

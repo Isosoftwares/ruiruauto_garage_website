@@ -40,7 +40,7 @@ const Navbar = () => {
     { name: "Portfolio", path: "/portfolio" },
     { name: "Contact", path: "/contact" },
     { name: "Facebook", path: "/facebook" },
-    // { name: "TikTok", path: "/tiktok" },
+    { name: "TikTok", path: "/tiktok" },
     { name: "Blog", path: "/blogs" },
     { name: "About", path: "/about" },
   ];
