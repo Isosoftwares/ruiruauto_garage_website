@@ -2,12 +2,12 @@ import React from "react";
 import { FaWhatsapp } from "react-icons/fa";
 
 function WhatsAppFloat() {
-  const whatsappNumber = "254723669437";
+  const whatsappNumber = "254781333555";
 
   const handleStartChat = () => {
-    const message = "Hi Motion Zip Ltd, I'm interested in booking a service/inquiring about auto repairs.";
+    const message = "Hello Ruiru Auto Garage, I'd like to inquire about your services";
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/${whatsappNumber}?text=${''}`, "_blank");
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, "_blank");
   };
 
   return (

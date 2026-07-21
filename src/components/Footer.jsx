@@ -24,7 +24,7 @@ const Footer = () => {
   const socialLinks = [
     {
       icon: FaWhatsapp,
-      href: "https://wa.me/254748333555",
+      href: "https://wa.me/254781333555?text=Hello%20Ruiru%20Auto%20Garage%2C%20I%27d%20like%20to%20inquire%20about%20your%20services",
       label: "WhatsApp",
       color: "hover:bg-green-600",
     },
