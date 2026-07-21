@@ -1,5 +1,9 @@
 import React, { useState, useRef, useCallback, useEffect } from "react";
-import { PhotoIcon, VideoCameraIcon, ArrowsRightLeftIcon } from "@heroicons/react/24/outline";
+import {
+  PhotoIcon,
+  VideoCameraIcon,
+  ArrowsRightLeftIcon,
+} from "@heroicons/react/24/outline";
 
 /**
  * BeforeAfterSlider component
@@ -25,25 +29,22 @@ const BeforeAfterSlider = ({
   const isAfterVideo = afterMedia?.type === "video";
   const hasVideo = isBeforeVideo || isAfterVideo;
 
-  const handleMove = useCallback(
-    (clientX) => {
-      if (!containerRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      const x = clientX - rect.left;
-      let percentage = (x / rect.width) * 100;
-      if (percentage < 0) percentage = 0;
-      if (percentage > 100) percentage = 100;
-      setSliderPos(percentage);
-    },
-    []
-  );
+  const handleMove = useCallback((clientX) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = clientX - rect.left;
+    let percentage = (x / rect.width) * 100;
+    if (percentage < 0) percentage = 0;
+    if (percentage > 100) percentage = 100;
+    setSliderPos(percentage);
+  }, []);
 
   const handleTouchMove = useCallback(
     (e) => {
       if (!isDragging) return;
       handleMove(e.touches[0].clientX);
     },
-    [isDragging, handleMove]
+    [isDragging, handleMove],
   );
 
   const handleMouseMove = useCallback(
@@ -51,7 +52,7 @@ const BeforeAfterSlider = ({
       if (!isDragging) return;
       handleMove(e.clientX);
     },
-    [isDragging, handleMove]
+    [isDragging, handleMove],
   );
 
   const handleMouseUp = useCallback(() => {
@@ -93,7 +94,7 @@ const BeforeAfterSlider = ({
             onClick={() => setActiveTab("after")}
             className={`flex-1 py-2 rounded-lg transition-all flex items-center justify-center gap-1.5 ${
               activeTab === "after"
-                ? "bg-emerald-600 text-white shadow-md"
+                ? "bg-green-600 text-white shadow-md"
                 : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
             }`}
           >
@@ -139,7 +140,7 @@ const BeforeAfterSlider = ({
               </>
             ) : (
               <>
-                <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span className="w-2 h-2 rounded-full bg-green-500"></span>
                 Restored Result
               </>
             )}
@@ -168,14 +169,22 @@ const BeforeAfterSlider = ({
       {viewMode === "side" ? (
         <div className="grid grid-cols-2 gap-2">
           <div className="relative rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 aspect-video">
-            <img src={beforeMedia.url} alt="Before" className="w-full h-full object-cover" />
+            <img
+              src={beforeMedia.url}
+              alt="Before"
+              className="w-full h-full object-cover"
+            />
             <span className="absolute top-2 left-2 bg-red-600 text-white text-[10px] uppercase font-extrabold px-2 py-0.5 rounded-md">
               BEFORE
             </span>
           </div>
           <div className="relative rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 aspect-video">
-            <img src={afterMedia.url} alt="After" className="w-full h-full object-cover" />
-            <span className="absolute top-2 left-2 bg-emerald-600 text-white text-[10px] uppercase font-extrabold px-2 py-0.5 rounded-md">
+            <img
+              src={afterMedia.url}
+              alt="After"
+              className="w-full h-full object-cover"
+            />
+            <span className="absolute top-2 left-2 bg-green-600 text-white text-[10px] uppercase font-extrabold px-2 py-0.5 rounded-md">
               AFTER
             </span>
           </div>
@@ -202,7 +211,7 @@ const BeforeAfterSlider = ({
           />
 
           {/* AFTER BADGE */}
-          <span className="absolute top-3 right-3 bg-emerald-600/90 text-white text-xs font-bold px-2.5 py-1 rounded-full uppercase shadow pointer-events-none backdrop-blur-sm">
+          <span className="absolute top-3 right-3 bg-green-600/90 text-white text-xs font-bold px-2.5 py-1 rounded-full uppercase shadow pointer-events-none backdrop-blur-sm">
             AFTER
           </span>
 
