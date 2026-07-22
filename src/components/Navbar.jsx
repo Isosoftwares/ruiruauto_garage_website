@@ -52,8 +52,8 @@ const Navbar = () => {
       <div
         className={`transition-all duration-300 ${
           isScrolled
-            ? "glass rounded-full shadow-lg w-[95%] md:w-[90%] max-w-7xl px-8 py-3 bg-white/90 dark:bg-dark-lighter/90 backdrop-blur-md"
-            : "w-[95%] md:w-[90%] max-w-7xl px-0 py-2"
+            ? "glass rounded-full shadow-lg w-[95%] lg:w-[90%] max-w-7xl px-8 py-3 bg-white/90 dark:bg-dark-lighter/90 backdrop-blur-md"
+            : "w-[95%] lg:w-[90%] max-w-7xl px-0 py-2"
         }`}
       >
         <div className="flex justify-between items-center relative">
@@ -69,7 +69,7 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation - Centered Links */}
-          <div className="hidden md:flex absolute left-1/2 -translate-x-1/2">
+          <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2">
             <div className="flex items-center gap-1 bg-gray-100 dark:bg-white/5 rounded-full p-1">
               {navLinks.map((link) => (
                 <Link
@@ -88,7 +88,7 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Actions - Right Aligned */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4">
             <Link
               to="/portal"
               className="flex items-center gap-2 font-medium text-gray-700 dark:text-gray-300 hover:text-primary transition-colors"
@@ -118,7 +118,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-4">
+          <div className="lg:hidden flex items-center gap-4">
             <button
               onClick={toggleTheme}
               className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
@@ -145,8 +145,8 @@ const Navbar = () => {
 
         {/* Mobile Menu Overlay */}
         <div
-          className={`md:hidden absolute top-full left-0 w-full bg-white dark:bg-dark-lighter border-t border-gray-100 dark:border-white/5 shadow-xl transition-all duration-300 ease-in-out overflow-hidden ${
-            isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          className={`lg:hidden absolute top-full left-0 w-full bg-white dark:bg-dark-lighter border-t border-gray-100 dark:border-white/5 shadow-xl transition-all duration-305 ease-in-out ${
+            isOpen ? "max-h-[85vh] overflow-y-auto opacity-100" : "max-h-0 overflow-hidden opacity-0"
           }`}
         >
           <div className="container-custom py-6 flex flex-col gap-4">

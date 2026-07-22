@@ -23,6 +23,17 @@ import HeroImage from "../assets/images/hero_premium.png";
 import TikTokFeedSection from "../components/TikTokFeedSection";
 import FacebookFeedSection from "../components/FacebookFeedSection";
 
+import LogoMercedes from "../assets/images/brands/mercedes.svg";
+import LogoBmw from "../assets/images/brands/bmw.svg";
+import LogoAudi from "../assets/images/brands/audi.svg";
+import LogoVw from "../assets/images/brands/vw.svg";
+import LogoLandRover from "../assets/images/brands/landrover.svg";
+import LogoToyota from "../assets/images/brands/toyota.svg";
+import LogoSubaru from "../assets/images/brands/subaru.svg";
+import LogoNissan from "../assets/images/brands/nissan.svg";
+import LogoMazda from "../assets/images/brands/mazda.svg";
+import LogoHyundai from "../assets/images/brands/hyundai.svg";
+
 // FAQ Component
 const FAQItem = ({ question, answer }) => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -429,16 +440,16 @@ const HomePage = () => {
           <div className="flex w-max animate-marquee gap-8 md:gap-12 items-center">
             {/* First Set of Logos */}
             {[
-              { name: "Mercedes-Benz", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/mercedes-benz.png" },
-              { name: "BMW", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/bmw.png" },
-              { name: "Audi", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/audi.png" },
-              { name: "Volkswagen", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/volkswagen.png" },
-              { name: "Land Rover", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/land-rover.png" },
-              { name: "Toyota", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/toyota.png" },
-              { name: "Subaru", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/subaru.png" },
-              { name: "Nissan", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/nissan.png" },
-              { name: "Mazda", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/mazda.png" },
-              { name: "Hyundai", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/hyundai.png" },
+              { name: "Mercedes-Benz", url: LogoMercedes },
+              { name: "BMW", url: LogoBmw },
+              { name: "Audi", url: LogoAudi },
+              { name: "Volkswagen", url: LogoVw },
+              { name: "Land Rover", url: LogoLandRover },
+              { name: "Toyota", url: LogoToyota },
+              { name: "Subaru", url: LogoSubaru },
+              { name: "Nissan", url: LogoNissan },
+              { name: "Mazda", url: LogoMazda },
+              { name: "Hyundai", url: LogoHyundai },
             ].map((brand, idx) => (
               <div
                 key={`brand-1-${idx}`}
@@ -447,23 +458,23 @@ const HomePage = () => {
                 <img
                   src={brand.url}
                   alt={brand.name}
-                  className="h-10 md:h-12 w-auto object-contain"
+                  className="h-10 md:h-12 w-auto object-contain dark:brightness-95"
                 />
               </div>
             ))}
             
             {/* Second Set of Logos (Duplicate for Infinite Scroll Loop) */}
             {[
-              { name: "Mercedes-Benz", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/mercedes-benz.png" },
-              { name: "BMW", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/bmw.png" },
-              { name: "Audi", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/audi.png" },
-              { name: "Volkswagen", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/volkswagen.png" },
-              { name: "Land Rover", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/land-rover.png" },
-              { name: "Toyota", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/toyota.png" },
-              { name: "Subaru", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/subaru.png" },
-              { name: "Nissan", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/nissan.png" },
-              { name: "Mazda", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/mazda.png" },
-              { name: "Hyundai", url: "https://raw.githubusercontent.com/filippofilip95/car-logos-dataset/master/logos/optimized/hyundai.png" },
+              { name: "Mercedes-Benz", url: LogoMercedes },
+              { name: "BMW", url: LogoBmw },
+              { name: "Audi", url: LogoAudi },
+              { name: "Volkswagen", url: LogoVw },
+              { name: "Land Rover", url: LogoLandRover },
+              { name: "Toyota", url: LogoToyota },
+              { name: "Subaru", url: LogoSubaru },
+              { name: "Nissan", url: LogoNissan },
+              { name: "Mazda", url: LogoMazda },
+              { name: "Hyundai", url: LogoHyundai },
             ].map((brand, idx) => (
               <div
                 key={`brand-2-${idx}`}
@@ -472,7 +483,7 @@ const HomePage = () => {
                 <img
                   src={brand.url}
                   alt={brand.name}
-                  className="h-10 md:h-12 w-auto object-contain"
+                  className="h-10 md:h-12 w-auto object-contain dark:brightness-95"
                 />
               </div>
             ))}

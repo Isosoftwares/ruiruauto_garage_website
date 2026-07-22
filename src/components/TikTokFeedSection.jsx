@@ -9,7 +9,8 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import axios from "../api/axios";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import { Modal } from "@mantine/core";
 
 const TikTokFeedSection = () => {
   const [displayCount, setDisplayCount] = useState(6);
@@ -172,51 +173,62 @@ const TikTokFeedSection = () => {
       </div>
 
       {/* VIDEO POPUP EMBED MODAL */}
-      <AnimatePresence>
+      <Modal
+        opened={!!activeVideoModal}
+        onClose={() => setActiveVideoModal(null)}
+        centered
+        size="md"
+        radius="lg"
+        withCloseButton={false}
+        padding={0}
+        styles={{
+          modal: {
+            backgroundColor: "transparent",
+            boxShadow: "none",
+          },
+        }}
+      >
         {activeVideoModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              className="relative w-full max-w-md bg-white dark:bg-dark-lighter rounded-3xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-800 p-4"
-            >
+          <div className="relative w-full max-w-sm mx-auto bg-white dark:bg-dark-lighter rounded-3xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-800 p-4 flex flex-col max-h-[90vh]">
+            {/* Header */}
+            <div className="flex justify-between items-center mb-3">
+              <h3 className="text-xs sm:text-sm font-bold text-gray-900 dark:text-white line-clamp-1 pr-6">
+                {activeVideoModal.caption || "TikTok Video Clip"}
+              </h3>
               <button
                 onClick={() => setActiveVideoModal(null)}
-                className="absolute top-4 right-4 z-10 p-2 bg-black/60 text-white rounded-full hover:bg-black transition-colors"
+                className="p-1 rounded-full text-gray-400 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors shrink-0"
               >
                 <XMarkIcon className="w-5 h-5" />
               </button>
+            </div>
 
-              <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-3 pr-8 line-clamp-1">
-                {activeVideoModal.caption || "TikTok Video Clip"}
-              </h3>
+            {/* Video Container (Responsive Height) */}
+            <div className="relative flex-grow min-h-0 aspect-[9/16] bg-black rounded-2xl overflow-hidden">
+              <iframe
+                src={activeVideoModal.embedUrl || `https://www.tiktok.com/embed/v2/${activeVideoModal.postId}`}
+                title={activeVideoModal.caption}
+                className="absolute inset-0 w-full h-full border-0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
 
-              <div className="aspect-[9/16] bg-black rounded-2xl overflow-hidden">
-                <iframe
-                  src={activeVideoModal.embedUrl || `https://www.tiktok.com/embed/v2/${activeVideoModal.postId}`}
-                  title={activeVideoModal.caption}
-                  className="w-full h-full border-0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-
-              <div className="mt-4 flex justify-between items-center">
-                <a
-                  href={activeVideoModal.shareUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="w-full py-2.5 bg-black dark:bg-white text-white dark:text-black font-extrabold text-xs rounded-xl text-center shadow-md flex items-center justify-center gap-2"
-                >
-                  Open Original Video on TikTok
-                  <ArrowTopRightOnSquareIcon className="w-4 h-4" />
-                </a>
-              </div>
-            </motion.div>
+            {/* Footer */}
+            <div className="mt-3 shrink-0">
+              <a
+                href={activeVideoModal.shareUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="w-full py-2 bg-black dark:bg-white text-white dark:text-black font-extrabold text-xs rounded-xl text-center shadow-md flex items-center justify-center gap-1.5 transition-colors hover:opacity-90"
+              >
+                Open Original Video on TikTok
+                <ArrowTopRightOnSquareIcon className="w-3.5 h-3.5" />
+              </a>
+            </div>
           </div>
         )}
-      </AnimatePresence>
+      </Modal>
     </section>
   );
 };

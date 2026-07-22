@@ -12,7 +12,8 @@ import {
 } from "@heroicons/react/24/outline";
 import axios from "../api/axios";
 import BeforeAfterSlider from "../components/BeforeAfterSlider";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+import { Modal } from "@mantine/core";
 
 const categories = [
   "All",
@@ -221,102 +222,102 @@ const PortfolioPage = () => {
       </div>
 
       {/* INTERACTIVE MODAL DIALOG ON CLICK */}
-      <AnimatePresence>
+      <Modal
+        opened={!!activeModalProject}
+        onClose={() => setActiveModalProject(null)}
+        centered
+        size="xl"
+        radius="lg"
+        withCloseButton={false}
+        padding={0}
+        styles={{
+          modal: {
+            backgroundColor: "transparent",
+            boxShadow: "none",
+            overflow: "hidden",
+          },
+        }}
+      >
         {activeModalProject && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-6">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setActiveModalProject(null)}
-              className="fixed inset-0 bg-black/85 backdrop-blur-md"
-            />
+          <div className="relative w-full max-w-6xl mx-auto bg-white dark:bg-dark-lighter rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-800 overflow-hidden flex flex-col max-h-[90vh]">
+            {/* Modal Header */}
+            <div className="p-5 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between bg-gray-50 dark:bg-dark shrink-0">
+              <div>
+                <span className="text-[10px] sm:text-xs font-extrabold text-primary uppercase tracking-wider">
+                  {activeModalProject.category}
+                </span>
+                <h3 className="text-sm sm:text-base font-black text-gray-900 dark:text-white line-clamp-1">
+                  {activeModalProject.title || "Garage Transformation"}
+                </h3>
+              </div>
 
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              className="relative w-full max-w-6xl h-[94vh] bg-white dark:bg-dark-lighter rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-800 overflow-hidden z-10 flex flex-col"
-            >
-              {/* Modal Header */}
-              <div className="p-5 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between bg-gray-50 dark:bg-dark">
-                <div>
-                  <span className="text-xs font-extrabold text-primary uppercase tracking-wider">
-                    {activeModalProject.category}
+              <button
+                onClick={() => setActiveModalProject(null)}
+                className="p-1.5 text-gray-400 hover:bg-gray-100 dark:hover:bg-white/10 rounded-full transition-colors shrink-0"
+              >
+                <XMarkIcon className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Modal Body */}
+            <div className="p-5 overflow-y-auto space-y-5 flex-grow min-h-0">
+              {/* Interactive Slider / Full Player */}
+              <BeforeAfterSlider
+                beforeMedia={activeModalProject.beforeMedia}
+                afterMedia={activeModalProject.afterMedia}
+                title={activeModalProject.title}
+              />
+
+              {/* Info Grid (If vehicle specs exist) */}
+              {activeModalProject.vehicleInfo && (
+                <div className="bg-gray-50 dark:bg-dark p-3.5 rounded-2xl border border-gray-100 dark:border-gray-800 text-[11px] sm:text-xs">
+                  <span className="text-gray-500 dark:text-gray-400 block font-semibold uppercase">
+                    Vehicle Specification
                   </span>
-                  <h3 className="text-lg font-black text-gray-900 dark:text-white">
-                    {activeModalProject.title || "Garage Transformation"}
-                  </h3>
+                  <span className="text-gray-900 dark:text-white font-bold text-sm">
+                    {activeModalProject.vehicleInfo}
+                  </span>
                 </div>
+              )}
 
-                <button
-                  onClick={() => setActiveModalProject(null)}
-                  className="p-2 text-gray-400 hover:text-gray-700 dark:hover:text-white rounded-full transition-colors"
+              {activeModalProject.description && (
+                <div className="space-y-1.5">
+                  <h4 className="font-bold text-xs sm:text-sm text-gray-900 dark:text-white flex items-center gap-1.5">
+                    <ShieldCheckIcon className="w-4 h-4 text-primary" /> Work Performed & Notes
+                  </h4>
+                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line">
+                    {activeModalProject.description}
+                  </p>
+                </div>
+              )}
+            </div>
+
+            {/* Modal Footer CTA */}
+            <div className="p-5 border-t border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-dark flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
+              <div className="text-[11px] sm:text-xs text-gray-500 dark:text-gray-400 text-center sm:text-left">
+                Have a similar repair? Contact us for a free estimate.
+              </div>
+
+              <div className="flex gap-2 w-full sm:w-auto">
+                <a
+                  href="https://wa.me/254748333555"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex-1 sm:flex-initial px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-xs font-bold rounded-xl shadow transition-colors flex items-center justify-center gap-1.5"
                 >
-                  <XMarkIcon className="w-6 h-6" />
-                </button>
+                  <ChatBubbleLeftEllipsisIcon className="w-4 h-4" /> WhatsApp Us
+                </a>
+                <Link
+                  to="/contact"
+                  className="flex-1 sm:flex-initial px-4 py-2 bg-primary hover:bg-primary/95 text-white text-xs font-bold rounded-xl shadow transition-colors text-center"
+                >
+                  Get Free Quote
+                </Link>
               </div>
-
-              {/* Modal Body */}
-              <div className="p-6 overflow-y-auto space-y-6">
-                {/* Interactive Slider / Full Player */}
-                <BeforeAfterSlider
-                  beforeMedia={activeModalProject.beforeMedia}
-                  afterMedia={activeModalProject.afterMedia}
-                  title={activeModalProject.title}
-                />
-
-                {/* Info Grid (If vehicle specs exist) */}
-                {activeModalProject.vehicleInfo && (
-                  <div className="bg-gray-50 dark:bg-dark p-4 rounded-2xl border border-gray-100 dark:border-gray-800 text-xs">
-                    <span className="text-gray-500 dark:text-gray-400 block font-semibold uppercase">
-                      Vehicle Specification
-                    </span>
-                    <span className="text-gray-900 dark:text-white font-bold text-sm">
-                      {activeModalProject.vehicleInfo}
-                    </span>
-                  </div>
-                )}
-
-                {activeModalProject.description && (
-                  <div className="space-y-2">
-                    <h4 className="font-bold text-sm text-gray-900 dark:text-white flex items-center gap-1.5">
-                      <ShieldCheckIcon className="w-4 h-4 text-primary" /> Work Performed & Notes
-                    </h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed whitespace-pre-line">
-                      {activeModalProject.description}
-                    </p>
-                  </div>
-                )}
-              </div>
-
-              {/* Modal Footer CTA */}
-              <div className="p-5 border-t border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-dark flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="text-xs text-gray-500 dark:text-gray-400 text-center sm:text-left">
-                  Have a similar repair? Contact us for a free estimate.
-                </div>
-
-                <div className="flex gap-3 w-full sm:w-auto">
-                  <a
-                    href="https://wa.me/254748333555"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex-1 sm:flex-initial px-4 py-2 bg-green-600 hover:bg-green-700 text-white text-xs font-bold rounded-xl shadow transition-colors flex items-center justify-center gap-1.5"
-                  >
-                    <ChatBubbleLeftEllipsisIcon className="w-4 h-4" /> WhatsApp Us
-                  </a>
-                  <Link
-                    to="/contact"
-                    className="flex-1 sm:flex-initial px-4 py-2 bg-primary hover:bg-primary/95 text-white text-xs font-bold rounded-xl shadow transition-colors text-center"
-                  >
-                    Get Free Quote
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
+            </div>
           </div>
         )}
-      </AnimatePresence>
+      </Modal>
     </div>
   );
 };
