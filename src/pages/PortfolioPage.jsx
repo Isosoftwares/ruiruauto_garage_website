@@ -226,7 +226,7 @@ const PortfolioPage = () => {
         opened={!!activeModalProject}
         onClose={() => setActiveModalProject(null)}
         centered
-        size="xl"
+        size="90%"
         radius="lg"
         withCloseButton={false}
         padding={0}
@@ -235,11 +235,13 @@ const PortfolioPage = () => {
             backgroundColor: "transparent",
             boxShadow: "none",
             overflow: "hidden",
+            width: "90%",
+            maxWidth: "1280px",
           },
         }}
       >
         {activeModalProject && (
-          <div className="relative w-full max-w-6xl mx-auto bg-white dark:bg-dark-lighter rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-800 overflow-hidden flex flex-col max-h-[90vh]">
+          <div className="relative w-full max-w-7xl mx-auto bg-white dark:bg-dark-lighter rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-800 overflow-hidden flex flex-col max-h-[90vh]">
             {/* Modal Header */}
             <div className="p-5 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between bg-gray-50 dark:bg-dark shrink-0">
               <div>

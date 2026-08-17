@@ -21,7 +21,8 @@ const BeforeAfterSlider = ({
   const [sliderPos, setSliderPos] = useState(50); // 0 to 100%
   const [isDragging, setIsDragging] = useState(false);
   const [activeTab, setActiveTab] = useState("after"); // 'before' | 'after' (for video or mobile tab view)
-  const [viewMode, setViewMode] = useState("slider"); // 'slider' | 'side'
+  const [viewMode, setViewMode] = useState("side"); // 'slider' | 'side'
+  const [containerWidth, setContainerWidth] = useState(0);
 
   const containerRef = useRef(null);
 
@@ -74,15 +75,26 @@ const BeforeAfterSlider = ({
     };
   }, [isDragging, handleMouseMove, handleMouseUp, handleTouchMove]);
 
+  // Keep track of container width for responsive image calculations
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const updateWidth = () => {
+      setContainerWidth(containerRef.current.offsetWidth);
+    };
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, [viewMode]);
+
   // If resources are videos, render tabbed or side-by-side video player
   if (hasVideo) {
     return (
       <div className={`space-y-3 ${className}`}>
         {/* Toggle Pills for Videos */}
-        <div className="flex justify-between items-center bg-gray-100 dark:bg-dark p-1 rounded-xl text-xs font-bold">
+        <div className="flex justify-between items-center bg-gray-150/80 dark:bg-dark p-1.5 rounded-2xl text-xs font-bold border border-gray-200 dark:border-gray-850">
           <button
             onClick={() => setActiveTab("before")}
-            className={`flex-1 py-2 rounded-lg transition-all flex items-center justify-center gap-1.5 ${
+            className={`flex-1 py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 ${
               activeTab === "before"
                 ? "bg-red-600 text-white shadow-md"
                 : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
@@ -92,7 +104,7 @@ const BeforeAfterSlider = ({
           </button>
           <button
             onClick={() => setActiveTab("after")}
-            className={`flex-1 py-2 rounded-lg transition-all flex items-center justify-center gap-1.5 ${
+            className={`flex-1 py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 ${
               activeTab === "after"
                 ? "bg-green-600 text-white shadow-md"
                 : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white"
@@ -102,13 +114,17 @@ const BeforeAfterSlider = ({
           </button>
         </div>
 
-        {/* Video Display Container */}
-        <div className="relative aspect-video bg-black rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-gray-800">
+        {/* Video Display Container - Larger and Cinematic */}
+        <div className="relative w-full h-[45vh] sm:h-[60vh] md:h-[65vh] min-h-[320px] max-h-[600px] bg-black rounded-3xl overflow-hidden shadow-2xl border border-gray-200 dark:border-gray-800">
           {activeTab === "before" ? (
             isBeforeVideo ? (
               <video
                 src={beforeMedia.url}
                 controls
+                autoPlay
+                muted
+                loop
+                playsInline
                 className="w-full h-full object-contain"
               />
             ) : (
@@ -122,6 +138,10 @@ const BeforeAfterSlider = ({
             <video
               src={afterMedia.url}
               controls
+              autoPlay
+              muted
+              loop
+              playsInline
               className="w-full h-full object-contain"
             />
           ) : (
@@ -132,15 +152,15 @@ const BeforeAfterSlider = ({
             />
           )}
 
-          <div className="absolute top-3 left-3 bg-black/70 backdrop-blur-md text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5">
+          <div className="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[11px] font-black px-4 py-1.5 rounded-full uppercase tracking-wider flex items-center gap-2 border border-white/10 shadow-lg">
             {activeTab === "before" ? (
               <>
-                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span>
                 Initial Condition
               </>
             ) : (
               <>
-                <span className="w-2 h-2 rounded-full bg-green-500"></span>
+                <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
                 Restored Result
               </>
             )}
@@ -152,7 +172,7 @@ const BeforeAfterSlider = ({
 
   // IMAGE BEFORE & AFTER SLIDER
   return (
-    <div className={`space-y-2 ${className}`}>
+    <div className={`space-y-3.5 ${className}`}>
       {/* Controls Bar */}
       <div className="flex justify-between items-center text-xs">
         <span className="font-semibold text-gray-500 dark:text-gray-400">
@@ -160,37 +180,37 @@ const BeforeAfterSlider = ({
         </span>
         <button
           onClick={() => setViewMode(viewMode === "slider" ? "side" : "slider")}
-          className="text-primary hover:underline font-bold"
+          className="text-primary hover:underline font-extrabold flex items-center gap-1 bg-primary/5 hover:bg-primary/10 px-3 py-1.5 rounded-xl border border-primary/20 transition-all"
         >
           {viewMode === "slider" ? "Side-by-Side View" : "Interactive Slider"}
         </button>
       </div>
 
       {viewMode === "side" ? (
-        <div className="grid grid-cols-2 gap-2">
-          <div className="relative rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 aspect-video">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="relative rounded-3xl overflow-hidden border border-gray-200 dark:border-gray-800 w-full h-[30vh] sm:h-[45vh] min-h-[250px] max-h-[450px] shadow-lg">
             <img
               src={beforeMedia.url}
               alt="Before"
               className="w-full h-full object-cover"
             />
-            <span className="absolute top-2 left-2 bg-red-600 text-white text-[10px] uppercase font-extrabold px-2 py-0.5 rounded-md">
+            <span className="absolute top-3 left-3 bg-red-600/90 backdrop-blur-sm text-white text-xs font-black px-3.5 py-1.5 rounded-xl border border-white/10 shadow">
               BEFORE
             </span>
           </div>
-          <div className="relative rounded-xl overflow-hidden border border-gray-200 dark:border-gray-800 aspect-video">
+          <div className="relative rounded-3xl overflow-hidden border border-gray-200 dark:border-gray-800 w-full h-[30vh] sm:h-[45vh] min-h-[250px] max-h-[450px] shadow-lg">
             <img
               src={afterMedia.url}
               alt="After"
               className="w-full h-full object-cover"
             />
-            <span className="absolute top-2 left-2 bg-green-600 text-white text-[10px] uppercase font-extrabold px-2 py-0.5 rounded-md">
+            <span className="absolute top-3 left-3 bg-green-600/90 backdrop-blur-sm text-white text-xs font-black px-3.5 py-1.5 rounded-xl border border-white/10 shadow">
               AFTER
             </span>
           </div>
         </div>
       ) : (
-        /* Interactive Drag Reveal Container */
+        /* Interactive Drag Reveal Container - Larger and Cinematic */
         <div
           ref={containerRef}
           onMouseDown={(e) => {
@@ -201,7 +221,7 @@ const BeforeAfterSlider = ({
             setIsDragging(true);
             handleMove(e.touches[0].clientX);
           }}
-          className="relative aspect-video w-full rounded-2xl overflow-hidden select-none cursor-ew-resize border border-gray-200 dark:border-gray-800 shadow-md group"
+          className="relative w-full h-[45vh] sm:h-[60vh] md:h-[65vh] min-h-[320px] max-h-[600px] rounded-3xl overflow-hidden select-none cursor-ew-resize border border-gray-200 dark:border-gray-800 shadow-2xl group"
         >
           {/* AFTER IMAGE (Base background) */}
           <img
@@ -211,7 +231,7 @@ const BeforeAfterSlider = ({
           />
 
           {/* AFTER BADGE */}
-          <span className="absolute top-3 right-3 bg-green-600/90 text-white text-xs font-bold px-2.5 py-1 rounded-full uppercase shadow pointer-events-none backdrop-blur-sm">
+          <span className="absolute top-4 right-4 bg-green-600/90 text-white text-xs font-black px-3.5 py-1.5 rounded-xl shadow border border-white/10 pointer-events-none backdrop-blur-sm tracking-wider">
             AFTER
           </span>
 
@@ -225,14 +245,12 @@ const BeforeAfterSlider = ({
               alt="Before repair"
               className="absolute inset-0 w-full h-full object-cover pointer-events-none max-w-none"
               style={{
-                width: containerRef.current
-                  ? `${containerRef.current.offsetWidth}px`
-                  : "100%",
+                width: containerWidth ? `${containerWidth}px` : "100%",
                 height: "100%",
               }}
             />
             {/* BEFORE BADGE */}
-            <span className="absolute top-3 left-3 bg-red-600/90 text-white text-xs font-bold px-2.5 py-1 rounded-full uppercase shadow pointer-events-none backdrop-blur-sm">
+            <span className="absolute top-4 left-4 bg-red-600/90 text-white text-xs font-black px-3.5 py-1.5 rounded-xl shadow border border-white/10 pointer-events-none backdrop-blur-sm tracking-wider">
               BEFORE
             </span>
           </div>
@@ -243,8 +261,8 @@ const BeforeAfterSlider = ({
             style={{ left: `${sliderPos}%` }}
           >
             {/* Center Circular Button */}
-            <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-9 h-9 rounded-full bg-white shadow-xl flex items-center justify-center border-2 border-primary group-hover:scale-110 transition-transform">
-              <ArrowsRightLeftIcon className="w-4 h-4 text-primary" />
+            <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-11 h-11 rounded-full bg-white/95 backdrop-blur-sm shadow-2xl flex items-center justify-center border-2 border-primary group-hover:scale-110 transition-transform cursor-ew-resize select-none">
+              <ArrowsRightLeftIcon className="w-5 h-5 text-primary animate-pulse" />
             </div>
           </div>
         </div>
