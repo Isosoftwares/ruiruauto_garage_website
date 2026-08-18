@@ -663,7 +663,7 @@ const InvoicePDF = ({ invoice, business }) => {
       </Page>
 
       {/* === POST SERVICE REPORT === */}
-      {invoice.postServiceReport && (
+      {invoice.showPostServiceReport && invoice.postServiceReport && (
         <Page size="A4" style={styles.reportPage}>
           <View style={styles.reportHeader}>
             <View style={{ flexDirection: "row", alignItems: "center", gap: 15 }}>
